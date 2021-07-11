@@ -7,11 +7,9 @@ from django.views import View
 
 
 class HomeView(View):
-    def get(self, request, guess):
-        var = {
-            'guess': int(guess)
-        }
-        return render(request, 'website/index.html', var)
+    def get(self, request):
+
+        return render(request, 'website/index.html')
 
     def post(self, request):
         return HttpResponse('Class based view')
