@@ -15,7 +15,7 @@
                                                  class="dropdown-toggle nav-link" href="#"><i
                         class="fa fa-binoculars"></i><span>Customers</span></a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Add Customer</a>
+                        <a class="dropdown-item" href={% url 'customer:index' %}>Add Customer</a>
                         <a class="dropdown-item" href="#">Manage Customer</a>
 
                     </div>
@@ -24,7 +24,7 @@
                                                  class="dropdown-toggle nav-link" href="#"><i
                         class="fa fa-paper-plane-o"></i><span>Products</span></a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Add Product</a>
+                        <a class="dropdown-item" href={% url 'product:index' %}>Add Product</a>
                         <a class="dropdown-item" href="#">Manage Product</a>
 
                     </div>
@@ -33,7 +33,7 @@
                     <a aria-expanded="false" data-bs-toggle="dropdown" class="dropdown-toggle nav-link" href="#">
                         <i class="fa fa-hand-paper-o"></i>Sell Management </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">New Sell</a>
+                        <a class="dropdown-item" href={% url 'sell:index' %}>New Sell</a>
                         <a class="dropdown-item" href="#">Manage Sell</a>
 
                     </div>
@@ -52,4 +52,4 @@
             </div>
         </div>
     </nav>
-    {% include 'dashboard/partials/topnav.html' %}
+    {% include 'partials/topnav.html' %}
