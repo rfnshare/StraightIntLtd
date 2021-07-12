@@ -4,6 +4,8 @@ from . import views
 app_name = 'customer'
 urlpatterns = [
     # path('', views.index, name='index'),
-    path('', views.ProtectView.as_view(), name='index'),
+    # path('', views.ProtectView.as_view(), name='index'),
+    path('', views.create_customer, name='create_customer'),
+    path('customer_list/', views.CustomerListView.as_view(), name='customer_list')
 
 ]

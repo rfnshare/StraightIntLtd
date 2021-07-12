@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'dashboard.apps.DashboardConfig',
     'product.apps.ProductConfig',
     'sell.apps.SellConfig',
-    'website.apps.WebsiteConfig'
+    'website.apps.WebsiteConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +136,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'dashboard:index'
 LOGIN_URL = 'dashboard:login'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

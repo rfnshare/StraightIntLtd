@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
-
+from customer.models import *
 # Create your views here.
 from django.views import View
 
@@ -15,4 +15,8 @@ def login(request):
 
 class ProtectView(LoginRequiredMixin, View):
     def get(self, request):
-        return render(request, 'dashboard/dashboard.html')
+        total_customer = Customer.objects.all().count()
+        ctx = {
+            'total_customer': total_customer
+        }
+        return render(request, 'dashboard/dashboard.html', ctx)
