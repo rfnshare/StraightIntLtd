@@ -3,6 +3,7 @@ from . import views
 
 app_name = 'product'
 urlpatterns = [
-    path('', views.index, name='index'),
+    # path('', views.index, name='index'),
+    path('', views.ProtectView.as_view(), name='index'),
 
 ]
