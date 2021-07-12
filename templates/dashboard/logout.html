@@ -1,0 +1,18 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/dashboard/bootstrap/css/bootstrap.min.css' %}">
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="border p-3 bg-white">
+                    <h3>Logout Page</h3>
+                    <hr>
+                    <div class="alert alert-danger">
+                        <h4>You have log out</h4>
+                    </div>
+                    <a href="{% url 'dashboard:login' %}">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
