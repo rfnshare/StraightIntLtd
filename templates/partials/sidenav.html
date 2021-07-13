@@ -16,7 +16,7 @@
                         class="fa fa-binoculars"></i><span>Customers</span></a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href={% url 'customer:create_customer' %}>Add Customer</a>
-                        <a class="dropdown-item" href="#">Manage Customer</a>
+                        <a class="dropdown-item" href="{% url 'customer:customer_list' %}">Manage Customer</a>
 
                     </div>
                 </li>
