@@ -47,7 +47,7 @@
                                     <td>{{ i.address }}</td>
                                     <td>{{ i.phone }}</td>
                                     <td>৳{{ i.balance }}</td>
-                                    <td><a class="btn btn-sm btn-success" href="#">View</a>
+                                    <td><a class="btn btn-sm btn-success" href="{% url  'customer:customer_details' i.id %}">View</a>
                                     </td>
                                     <td><a class="btn btn-sm btn-info" href="#">Edit</a></td>
                                     <td><a class="btn btn-sm btn-danger" href="#">Delete</a>

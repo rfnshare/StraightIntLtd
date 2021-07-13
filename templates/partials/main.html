@@ -15,13 +15,30 @@
 </head>
 <body id="page-top">
 {% if user.is_authenticated %}
-{% include 'partials/sidenav.html' %}
 
-{% block content %}
-{% endblock %}
-{% include 'partials/footer.html' %}
-</div>
-</div>
+
+<div id="wrapper">
+    <!-- Side bar -->
+        {% include 'partials/sidenav.html' %}
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <!-- Nav bar -->
+                {% include 'partials/topnav.html' %}
+
+                <!-- Content -->
+                <div class="container">
+                    {% block content %}
+
+
+                    {% endblock %}
+                
+                </div>
+                
+            </div>
+            <!-- footer -->
+            {% include 'partials/footer.html' %}
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
 {% else %}
     <div class="container">
         <div class="row">

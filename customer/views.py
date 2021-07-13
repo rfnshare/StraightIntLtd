@@ -43,3 +43,7 @@ class CustomerListView(ListView):
 #         }
 #         return render(request, 'customer/create_customer.html', ctx)
 #         # if request.method == 'POST':
+def customerDetails(request, pk):
+    customer = Customer.objects.get(id=pk)
+    form =CustomerForm(instance= customer)
+    return render(request, "customer/customer_details.html",{'form':form})
