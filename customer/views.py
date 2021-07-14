@@ -1,7 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
-
+from django.contrib import messages
 from .models import *
 # Create your views here.
 from django.views import View
@@ -18,6 +18,7 @@ def create_customer(request):
         form = CustomerForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Form submission successful')
             return redirect('customer:customer_list')
     ctx = {'form': form}
     return render(request, 'customer/create_customer.html', ctx)

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'sell.apps.SellConfig',
     'website.apps.WebsiteConfig',
     'crispy_forms',
+    'sweetify'
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,4 @@ LOGIN_REDIRECT_URL = 'dashboard:index'
 LOGIN_URL = 'dashboard:login'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
