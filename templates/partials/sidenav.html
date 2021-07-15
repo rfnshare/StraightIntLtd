@@ -9,28 +9,30 @@
                 <li class="nav-item"><a class="nav-link active" href="{% url 'dashboard:index' %}"><i
                         class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
 
-                <li class="nav-item dropdown"><a aria-expanded="false" data-bs-toggle="dropdown"
-                                                 class="dropdown-toggle nav-link" href="#"><i
+                <li class="nav-item dropdown">
+                    <a href="#customer" aria-expanded="false" data-toggle="collapse"
+                                                 class="dropdown-toggle nav-link " href="#"><i
                         class="fa fa-binoculars"></i><span>Customers</span></a>
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu collapse list-unstyled" id="customer">
                         <a class="dropdown-item" href={% url 'customer:create_customer' %}>Add Customer</a>
                         <a class="dropdown-item" href="{% url 'customer:customer_list' %}">Manage Customer</a>
 
                     </div>
                 </li>
-                <li class="nav-item dropdown"><a aria-expanded="false" data-bs-toggle="dropdown"
+                <li class="nav-item dropdown">
+                    <a href="#product" aria-expanded="false" data-toggle="collapse"
                                                  class="dropdown-toggle nav-link" href="#"><i
                         class="fa fa-paper-plane-o"></i><span>Products</span></a>
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu collapse list-unstyled" id="product">
                         <a class="dropdown-item" href={% url 'product:index' %}>Add Product</a>
                         <a class="dropdown-item" href="#">Manage Product</a>
 
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a aria-expanded="false" data-bs-toggle="dropdown" class="dropdown-toggle nav-link" href="#">
+                    <a href="#sell" aria-expanded="false" data-toggle="collapse" class="dropdown-toggle nav-link" href="#">
                         <i class="fa fa-hand-paper-o"></i>Sell Management </a>
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu collapse list-unstyled" id="sell">
                         <a class="dropdown-item" href={% url 'sell:index' %}>New Sell</a>
                         <a class="dropdown-item" href="#">Manage Sell</a>
 

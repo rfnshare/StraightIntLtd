@@ -10,6 +10,10 @@ class CustomerForm(forms.ModelForm):
         model = Customer
         fields = "__all__"
 
+        # widgets = {
+        #     'name': forms.TextInput(attrs={'class': 'form-control'})
+        # }
+
         widgets={
         'name': forms.TextInput(attrs={'class': 'form-control','placeholder':'name'}),
         }
