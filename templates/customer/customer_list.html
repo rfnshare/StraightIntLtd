@@ -34,7 +34,7 @@
                             <th>Address</th>
                             <th>Phone</th>
                             <th>Balance</th>
-                            <th colspan="2">Action</th>
+                            <th colspan="2" style="text-align: center;">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -49,8 +49,8 @@
                                     <td>৳{{ i.balance }}</td>
                                     <td><a class="btn btn-sm btn-success" href="{% url  'customer:customer_details' i.id %}">View</a>
                                     </td>
-                                    <td><a class="btn btn-sm btn-info" href="#">Edit</a></td>
-                                    <td><a class="btn btn-sm btn-danger" href="#">Delete</a>
+                                    <td><a class="btn btn-sm btn-info" href="{% url 'customer:customer_edit' i.id %}">Edit</a></td>
+                                    <td><a class="btn btn-sm btn-danger" href="{% url 'customer:customer_delete' i.id %}">Delete</a>
                                     </td>
 
                                 </tr>

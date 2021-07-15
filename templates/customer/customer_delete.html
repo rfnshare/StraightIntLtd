@@ -1,0 +1,13 @@
+{% extends 'dashboard/dashboard.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div style="text-align: center;">
+        <h1>Are you sure, You went to delete this?</h1>
+        <form method="post">
+            {% csrf_token %}
+            <a class="btn btn-primary" href="{% url 'customer:customer_list' %}">Cencle</a>
+            <input class="btn btn-danger" type="submit" name="Delete" value="Delete">
+        </form>
+    </div>
+{% endblock %}
