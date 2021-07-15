@@ -35,6 +35,8 @@
                     <table class="table my-0" id="dataTable">
                         <thead>
                         <tr>
+                            <th><label for="all"> All</label>
+                                <input type="checkbox" id="all"></th>
                             <th>Id</th>
                             <th>Name</th>
                             <th>Email</th>
@@ -48,6 +50,7 @@
                         {% if object_list %}
                             {% for i in object_list %}
                                 <tr>
+                                    <td><input type="checkbox"></td>
                                     <td>{{ i.uid }}</td>
                                     <td>{{ i.name }}</td>
                                     <td>{{ i.email }}</td>
@@ -57,8 +60,10 @@
                                     <td><a class="btn btn-sm btn-success"
                                            href="{% url  'customer:customer_details' i.id %}">View</a>
                                     </td>
-                                    <td><a class="btn btn-sm btn-info" href="{% url 'customer:customer_edit' i.id %}">Edit</a></td>
-                                    <td><a class="btn btn-sm btn-danger" href="{% url 'customer:customer_delete' i.id %}">Delete</a>
+                                    <td><a class="btn btn-sm btn-info" href="{% url 'customer:customer_edit' i.id %}">Edit</a>
+                                    </td>
+                                    <td><a class="btn btn-sm btn-danger"
+                                           href="{% url 'customer:customer_delete' i.id %}">Delete</a>
                                     </td>
 
                                 </tr>
