@@ -10,8 +10,8 @@ urlpatterns = [
     path('customer_details/<str:pk>/', views.CustomerDetails.as_view(), name='customer_details'),
     path('customer_edit/<str:pk>/', views.customer_edit.as_view(),name= 'customer_edit'),
     path('customer_delete/<str:pk>/', views.customer_delete.as_view(), name='customer_delete'),
-    #path('customer_edit/<str:pk>/', views.cuEdit, name='customer_edit'),
-    #path('customer_delete/<str:pk>/', views.cuDelete, name='customer_delete')
+    # path('customer_edit/<str:pk>/', views.cuEdit, name='customer_edit'),
+    # path('customer_delete/<str:pk>/', views.cuDelete, name='customer_delete')
     
 
 ]

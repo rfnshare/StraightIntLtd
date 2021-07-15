@@ -1,7 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
-from django.views.generic import ListView,DetailView,DeleteView,UpdateView
-
+from django.views.generic import ListView, DetailView, DeleteView, UpdateView
 
 from django.urls import reverse_lazy
 
@@ -31,6 +30,7 @@ class CustomerListView(ListView):
     template_name = 'customer/customer_list.html'
     paginate_by = 10
 
+
 # class ProtectView(LoginRequiredMixin, View):
 #     def get(self, request):
 #         forms = CustomerForm()
@@ -48,15 +48,13 @@ class CustomerListView(ListView):
 #         # if request.method == 'POST':
 def customerDetails(request, pk):
     customer = Customer.objects.get(id=pk)
-    form =CustomerForm(instance= customer)
-    return render(request, "customer/customer_details.html",{'form':form})
+    form = CustomerForm(instance=customer)
+    return render(request, "customer/customer_details.html", {'form': form})
 
 
 class CustomerDetails(DetailView):
     model = Customer
     template_name = 'customer/customer_details.html'
-
-
 
 
 """def cuEdit(request, pk):
@@ -82,7 +80,7 @@ class customer_edit(UpdateView):
         'balance'
     ]
     success_url = reverse_lazy('customer:customer_list')
-    
+
 
 """def cuDelete(request, pk):
     customer = Customer.objects.get(id=pk)
