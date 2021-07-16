@@ -22,7 +22,7 @@
                         {% if messages %}
                             <ul class="messages">
                                 {% for message in messages %}
-                                    <span class= {{message.}}>{{ message }}</span>
+                                    <span class="{{ message.tags }}">{{ message }}</span>
                                 {% endfor %}
                             </ul>
                         {% endif %}
