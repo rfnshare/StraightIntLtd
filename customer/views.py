@@ -39,7 +39,7 @@ class CustomerCreateView(LoginRequiredMixin, CreateView):
 class CustomerListView(LoginRequiredMixin, ListView):
     model = Customer
     template_name = 'customer/customer_list.html'
-    paginate_by = 5
+    paginate_by = 10
 
 
 class CustomerUpdateView(LoginRequiredMixin, UpdateView):
