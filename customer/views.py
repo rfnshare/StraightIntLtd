@@ -1,8 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.views.generic import *
 from django.urls import reverse_lazy
-from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from .models import *
 from django.contrib import messages
@@ -15,19 +16,22 @@ from .forms import *
 #     redirect_field_name = 'redirect_to'
 
 
-class CustomerCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+class CustomerCreateView(LoginRequiredMixin, CreateView):
     model = Customer
+    form_class = CustomerForm
     template_name = 'customer/create_customer.html'
-    fields = [
-        'name',
-        'email',
-        'phone',
-        'address',
-        'uid',
-        'balance'
-    ]
-    success_message = "%(name)s was created successfully"
     success_url = reverse_lazy('customer:customer_list')
+    success_message = "%(name)s was created successfully."
+
+    def form_valid(self, form):
+        success_message = self.get_success_message(form.cleaned_data)
+        if success_message:
+            messages.success(self.request, success_message, extra_tags='text-success')
+        super().form_valid(form)
+        return HttpResponseRedirect(self.get_success_url())
+
+    def get_success_message(self, cleaned_data):
+        return self.success_message % cleaned_data
 
 
 class CustomerListView(LoginRequiredMixin, ListView):
@@ -36,27 +40,34 @@ class CustomerListView(LoginRequiredMixin, ListView):
     paginate_by = 10
 
 
-class CustomerUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+class CustomerUpdateView(LoginRequiredMixin, UpdateView):
     model = Customer
     template_name = 'customer/customer_edit.html'
-
-    fields = [
-        'name',
-        'email',
-        'phone',
-        'address',
-        'uid'
-
-    ]
-    success_message = '%(name)s was updated successfully'
+    form_class = CustomerUpdateForm
+    success_message = "%(name)s was updated successfully."
     success_url = reverse_lazy('customer:customer_list')
+
+    def form_valid(self, form):
+        success_message = self.get_success_message(form.cleaned_data)
+        if success_message:
+            messages.success(self.request, success_message, extra_tags='text-info')
+        super().form_valid(form)
+        return HttpResponseRedirect(self.get_success_url())
+
+    def get_success_message(self, cleaned_data):
+        return self.success_message % cleaned_data
 
 
 class CustomerDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Customer
     template_name = 'customer/customer_delete.html'
-    success_message = '%(name)s was deleted successfully'
     success_url = reverse_lazy('customer:customer_list')
+    success_message = "Session %(name)s was removed successfully"
+
+    def delete(self, request, *args, **kwargs):
+        obj = self.get_object()
+        messages.success(self.request, self.success_message % obj.__dict__, extra_tags='text-danger')
+        return super(CustomerDeleteView, self).delete(request, *args, **kwargs)
 
 
 class CustomerDetailsView(LoginRequiredMixin, DetailView):

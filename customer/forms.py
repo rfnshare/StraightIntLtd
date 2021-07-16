@@ -18,3 +18,20 @@ class CustomerForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'name'}),
         }
 
+
+class CustomerUpdateForm(forms.ModelForm):
+    # name = forms.CharField(max_length=100)
+
+    class Meta:
+        model = Customer
+        exclude = ('balance',)
+        fields = "__all__"
+
+        # widgets = {
+        #     'name': forms.TextInput(attrs={'class': 'form-control'})
+        # }
+
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'name'}),
+        }
+
