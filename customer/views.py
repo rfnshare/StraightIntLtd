@@ -19,6 +19,7 @@ from .forms import *
 class CustomerCreateView(LoginRequiredMixin, CreateView):
     model = Customer
     form_class = CustomerForm
+    paginate_by = 10
     template_name = 'customer/create_customer.html'
     success_url = reverse_lazy('customer:customer_list')
     success_message = "%(name)s was created successfully."
@@ -37,7 +38,13 @@ class CustomerCreateView(LoginRequiredMixin, CreateView):
 class CustomerListView(LoginRequiredMixin, ListView):
     model = Customer
     template_name = 'customer/customer_list.html'
-    paginate_by = 10
+    paginate_by = 5
+
+    js = """
+    function random(select){
+    var e = document.getElementById("ddlViewBy");
+    var strUser = e.options[e.selectedIndex].text;
+    alert(strUser)}"""
 
 
 class CustomerUpdateView(LoginRequiredMixin, UpdateView):
