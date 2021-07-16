@@ -12,12 +12,13 @@
                     <div class="col-md-4 text-nowrap">
                         <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label
                                 class="form-label">Show 
-                            <select class="d-inline-block form-select form-select-sm" id="ddlViewBy" onclick="random(this)">
-                            <option value="10" selected>10</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                            <option value="100">100</option>
-                        </select> </label></div>
+                            <select class="d-inline-block form-select form-select-sm" id="ddlViewBy"
+                                    onchange="random(this)">
+                                <option value="10" selected>10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select> </label></div>
                     </div>
                     <div class="col-md-2 text-nowrap">
                         {% if messages %}
@@ -83,6 +84,7 @@
                     </div>
                     <div class="col-md-6">
                         <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+
                             <ul class="pagination">
                                 {% if page_obj.has_previous %}
                                     <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
@@ -92,19 +94,29 @@
                                             aria-hidden="true">«</span></a></li>
 
                                 {% endif %}
-                            </ul>
-                            <ul class="pagination">
+
                                 {% if page_obj.has_next %}
 
+                                    {% for i in paginator.page_range %}
+
+                                        <li class="page-item">
+
+
+                                            <a class="page-link {% if request.path == url  %}active{% endif %}" href="?page={{ i }}">{{ i }}</a>
+                                        </li>
+
+                                    {% endfor %}
                                     <li class="page-item"><a class="page-link"
                                                              href="?page={{ page_obj.next_page_number }}"
                                                              aria-label="Next"><span
                                             aria-hidden="true">»</span></a></li>
+
                                     <li class="page-item"><a class="page-link"
                                                              href="?page={{ page_obj.paginator.num_pages }}">Last</a>
                                     </li>
                                 {% endif %}
                             </ul>
+
                         </nav>
                     </div>
                 </div>

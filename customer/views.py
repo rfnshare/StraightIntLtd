@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
@@ -39,12 +40,6 @@ class CustomerListView(LoginRequiredMixin, ListView):
     model = Customer
     template_name = 'customer/customer_list.html'
     paginate_by = 5
-
-    js = """
-    function random(select){
-    var e = document.getElementById("ddlViewBy");
-    var strUser = e.options[e.selectedIndex].text;
-    alert(strUser)}"""
 
 
 class CustomerUpdateView(LoginRequiredMixin, UpdateView):
