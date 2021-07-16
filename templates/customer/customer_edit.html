@@ -13,57 +13,67 @@
                 </form>
             </div>
         </div>
-
-        {#        <div class="container">#}
-        {#            <div class="form-row">#}
-        {#                <div class="form-group col-md-6">#}
-        {#                    <label for="name">Name</label>#}
-        {#                    <input type="text" class="form-control" id="name" name="name" placeholder="Name">#}
-        {#                </div>#}
-        {#                <div class="form-group col-md-6">#}
-        {#                    <label for="inputEmail4">Email</label>#}
-        {#                    <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email">#}
-        {#                </div>#}
-        {##}
-        {#            </div>#}
-        {#            <div class="form-group">#}
-        {#                <label for="inputAddress">Address</label>#}
-        {#                <input type="text" name="address" class="form-control" id="inputAddress"#}
-        {#                       placeholder="Maniknagar, Dhaka">#}
-        {#            </div>#}
-        {#            <div class="form-group">#}
-        {#                <label for="phone">Phone</label>#}
-        {#                <input type="text" class="form-control" name="phone" id="phone" placeholder="+8801521259370">#}
-        {#            </div>#}
-        {#              <div class="form-group">#}
-        {#                <label for="inputAddress2">Address 2</label>#}
-        {#                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">#}
-        {#              </div>#}
-        {#            <div class="form-row">#}
-        {#                <div class="form-group col-md-6">#}
-        {#                    <label for="inputCity">City</label>#}
-        {#                    <input type="text" class="form-control" id="inputCity">#}
-        {#                </div>#}
-        {#                <div class="form-group col-md-4">#}
-        {#                    <label for="inputState">State</label>#}
-        {#                    <select id="inputState" class="form-control">#}
-        {#                        <option selected>Choose...</option>#}
-        {#                        <option>Dhaka</option>#}
-        {#                    </select>#}
-        {#                </div>#}
-        {#                <div class="form-group col-md-2">#}
-        {#                    <label for="balance">Previous Balance</label>#}
-        {#                    <input type="text" name="balance" class="form-control" id="balance">#}
-        {#                </div>#}
-        {#                <div class="form-group col-md-2">#}
-        {#                    <label for="id">Unique ID</label>#}
-        {#                    <input type="text" name="u_id" class="form-control" id="id">#}
-        {#                </div>#}
-        {#            </div>#}
-        {#            <br>#}
-        {#            <button type="submit" class="btn btn-primary">Create</button>#}
-        {#            <a class="btn btn-success" href="">List</a>#}
-        {#        </div>#}
     </form>
+
+<!--<form method="post">-->
+<!--        {% csrf_token %}-->
+<!--        <div class="container">-->
+<!--            <div class="form-row ">-->
+<!--            <div id="div_id_name" class="form-group">-->
+<!--                 <label for="id_name" class=" requiredField">-->
+<!--                        Name<span class="asteriskField">*</span>-->
+<!--                </label>-->
+<!--                <div class="">-->
+<!--                    <input type="text" value="{{customer.name}}" name="name" class="form-control textinput textInput form-control" placeholder="name" maxlength="100" required="" id="id_name">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div id="div_id_email" class="form-group">-->
+<!--                <label for="id_email" class=" requiredField">-->
+<!--                    Email<span class="asteriskField">*</span>-->
+<!--                </label>-->
+<!--                <div class="">-->
+<!--                    <input type="email" name="email" maxlength="254" class="emailinput form-control" required="" id="id_email">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div id="div_id_address" class="form-group">-->
+<!--                <label for="id_address" class=" requiredField">-->
+<!--                    Address<span class="asteriskField">*</span>-->
+<!--                </label>-->
+<!--                <div class="">-->
+<!--                    <input type="text" name="address" maxlength="100" class="textinput textInput form-control" required="" id="id_address">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div id="div_id_phone" class="form-group">-->
+<!--                <label for="id_phone" class=" requiredField">-->
+<!--                    Phone<span class="asteriskField">*</span>-->
+<!--                </label>-->
+<!--                 <div class="">-->
+<!--                    <input type="text" name="phone" maxlength="100" class="textinput textInput form-control" required="" id="id_phone">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div id="div_id_balance" class="form-group">-->
+<!--                <label for="id_balance" class=" requiredField">-->
+<!--                    Balance<span class="asteriskField">*</span>-->
+<!--                </label>-->
+<!--                <div class="">-->
+<!--                    <input type="number" name="balance" class="numberinput form-control" required="" id="id_balance">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div id="div_id_uid" class="form-group">-->
+<!--                <label for="id_uid" class=" requiredField">-->
+<!--                    Uid<span class="asteriskField">*</span>-->
+<!--                </label>-->
+<!--                <div class="">-->
+<!--                    <input type="number" name="uid" class="numberinput form-control" required="" id="id_uid">-->
+<!--                </div>-->
+<!--        </div>-->
+
+<!--                    <br>-->
+<!--                    <button type="submit" class="btn btn-primary">Create</button>-->
+
+<!--                <a class="btn btn-success" href="/customer/customer_list/">List</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </form>-->
 
 {% endblock %}

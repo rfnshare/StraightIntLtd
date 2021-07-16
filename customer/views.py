@@ -74,9 +74,10 @@ class customer_edit(UpdateView):
 
     fields = [
         'name',
+        'email',
         'phone',
         'address',
-        'balance'
+
     ]
     success_url = reverse_lazy('customer:customer_list')
 
