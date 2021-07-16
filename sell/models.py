@@ -1,3 +1,6 @@
 from django.db import models
+from customer import models as customer_models
 
-# Create your models here.
+
+class Invoice(models.Model):
+    name = models.ForeignKey(customer_models.Customer, on_delete=models.CASCADE)
