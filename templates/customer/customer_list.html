@@ -9,7 +9,7 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-6 text-nowrap">
+                    <div class="col-md-4 text-nowrap">
                         <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label
                                 class="form-label">Show <select class="d-inline-block form-select form-select-sm">
                             <option value="10" selected>10</option>
@@ -17,6 +17,15 @@
                             <option value="50">50</option>
                             <option value="100">100</option>
                         </select> </label></div>
+                    </div>
+                    <div class="col-md-2 text-nowrap">
+                        {% if messages %}
+                            <ul class="messages">
+                                {% for message in messages %}
+                                    <span class="text-info">{{ message }}</span>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
                     </div>
                     <div class="col-md-6">
                         <div class="text-md-end dataTables_filter" id="dataTable_filter"><label
