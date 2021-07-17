@@ -215,7 +215,7 @@
     </div>
 
     <script>
-    function onCLick(){
+    window.onload = function onCLick(){
         var ctx1 = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx1, {
             type: 'bar',
