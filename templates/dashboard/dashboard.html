@@ -220,10 +220,10 @@
         var myChart = new Chart(ctx1, {
             type: 'bar',
             data: {
-                labels: ['Customer', 'Invoices'],
+                labels: [{% for i in qs %}'{{i.name}}',{% endfor %}],
                 datasets: [{
-                    label: '# of Votes',
-                    data: [{{ total_customer }}, {{ total_invoices }},0,5],
+                    label: '',
+                    data: [{% for i in qs %}{{i.balance}},{% endfor %}],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -257,10 +257,10 @@
         var PieChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ['Customer', 'Invoices'],
+                labels: [{% for i in qs %}'{{i.name}}',{% endfor %}],
                 datasets: [{
-                    label: '# of Votes',
-                    data: [{{ total_customer }}, {{ total_invoices }}],
+                    label: '',
+                    data: [{% for i in qs %}{{i.balance}},{% endfor %}],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
