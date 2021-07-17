@@ -9,4 +9,4 @@ from .models import *
 
 @admin.register(Customer)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('uid', 'name', 'email', 'phone', 'address')
+    list_display = ['uid', 'name', 'email', 'phone', 'address']
