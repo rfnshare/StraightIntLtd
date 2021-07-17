@@ -38,7 +38,7 @@
                         <thead>
                         <tr>
 
-                            <th><input type="checkbox" id="all"></th>
+                            <th><input type="checkbox" id="all" onclick="toggle(this)"></th>
                             <th>Id</th>
                             <th>Name</th>
                             {#                            <th>Email</th>#}
@@ -52,7 +52,7 @@
                         {% if object_list %}
                             {% for i in object_list %}
                                 <tr>
-                                    <td><input type="checkbox"></td>
+                                    <td><input type="checkbox" name="foo" value="bar1"></td>
                                     <td>{{ i.id }}</td>
                                     <td>{{ i.name }}</td>
                                     {#                                    <td>{{ i.email }}</td>#}
@@ -60,7 +60,7 @@
                                     {#                                    <td>{{ i.phone }}</td>#}
                                     {#                                    <td>৳{{ i.balance }}</td>#}
                                     <td><a class="btn btn-sm btn-success"
-                                           href="#">View</a>
+                                           href="{% url 'sell:pdf' i.id %}">View Bill</a>
                                     </td>
                                     <td><a class="btn btn-sm btn-info" href="#">Edit</a>
                                     </td>
