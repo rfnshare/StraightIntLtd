@@ -10,7 +10,6 @@ __pycache__/
 */*/__pycache__/
 */__pycache__/
 local_settings.py
-sell/migrations
 customer/migrations
 dashboard/migrations
 product/migrations
