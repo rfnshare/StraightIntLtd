@@ -6,6 +6,8 @@ from django.shortcuts import render, redirect
 from django.views.generic import *
 from django.urls import reverse_lazy
 from django.contrib import messages
+
+from sell.models import Invoice
 from .models import *
 from django.contrib import messages
 from django.views import View

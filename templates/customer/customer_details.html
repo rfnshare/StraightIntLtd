@@ -1,17 +1,45 @@
 {% extends 'partials/main.html' %}
-
+{% load static %}
 {% block content %}
     <div class="d-sm-flex justify-content-center align-items-center mb-4">
         <h3 class="text-dark mb-0">Customer Profile</h3>
     </div>
 
-    <div class="row justify-content-center">
+
+    <div class="row">
+        <div class="col-lg-5 col-xl-4">
+            <div class="card mb-3">
+                <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4"
+                                                               src="{% static '/dashboard/img/61928672_2299563540103978_671004437166161920_n.jpg' %}"
+                                                               width="160"
+                                                               height="160">
+                    <div class="mb-3">
+                        <button class="btn btn-primary btn-sm" type="button">Change Photo</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <p class="text-primary m-0 fw-bold">Extra Information</p>
+                </div>
+                <div class="card-body text-center">
+                    <div class="badge bg-primary text-wrap" style="width: 10rem;">
+                        Total Orders: {{ customer.invoice_set.count }}
+                    </div>
+                    <div class="badge bg-primary text-wrap" style="width: 10rem;">
+                        Pending Balance: ৳{{ customer.balance }}
+                    </div>
+
+                </div>
+            </div>
+        </div>
         <div class="col-lg-7 col-xl-8">
             <div class="card shadow mb-4">
 
                 <div class="card-body ">
                     <div class="container">
                         <div class="row">
+
                             <div class="col-sm-3">
                                 <h6 class="mb-0">U-ID</h6>
                             </div>
