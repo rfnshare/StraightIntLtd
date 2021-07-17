@@ -10,7 +10,8 @@ class CustomerCreateForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Abdullah Al Faroque'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'rfnshare@gmail.com'}),
-            'address': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '75/4 East Maniknagar, Dhaka 1203'}),
+            'address': forms.TextInput(
+                attrs={'class': 'form-control', 'placeholder': '75/4 East Maniknagar, Dhaka 1203'}),
             'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '01521259370'}),
             'balance': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': '38500'}),
             'uid': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'rf45q8c'}),
@@ -19,18 +20,7 @@ class CustomerCreateForm(forms.ModelForm):
 
 
 class CustomerUpdateForm(forms.ModelForm):
-    # name = forms.CharField(max_length=100)
-
     class Meta:
         model = Customer
         exclude = ('balance',)
         fields = "__all__"
-
-        # widgets = {
-        #     'name': forms.TextInput(attrs={'class': 'form-control'})
-        # }
-
-        widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'name'}),
-        }
-
