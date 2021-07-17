@@ -42,6 +42,7 @@ class CustomerListView(LoginRequiredMixin, ListView):
     model = Customer
     template_name = 'customer/customer_list.html'
     paginate_by = 10
+    extra_context = {'invoice_balance': Invoice.objects.all()}
 
 
 class CustomerUpdateView(LoginRequiredMixin, UpdateView):
