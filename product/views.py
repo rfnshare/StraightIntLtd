@@ -12,4 +12,4 @@ def index(request):
 
 class ProtectView(LoginRequiredMixin, View):
     def get(self, request):
-        return render(request, 'dashboard/dashboard.html')
+        return render(request, 'product/create_product.html')
