@@ -1,0 +1,89 @@
+{% extends 'partials/main.html' %}
+{% load static %}
+{% block content %}
+    <div class="d-sm-flex justify-content-center align-items-center mb-4">
+        <h3 class="text-dark mb-0">Admin Profile</h3>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-5 col-xl-4 align-items-stretch">
+            <div class="card ">
+                <div class="card-body text-center shadow">
+                    <img class="rounded-circle mb-3 mt-4" src="{{ user.profile.image.url }}" width="160" height="160" alt="Image">
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-7 col-xl-8">
+            <div class="card shadow mb-4">
+
+                <div class="card-body ">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-9 text-dark">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Username</h6>
+                            </div>
+                            <div class="col-sm-9 text-dark">
+
+                                {{ user.username }}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Name</h6>
+                            </div>
+                            <div class="col-sm-9 text-dark">
+
+                                {{ user.get_full_name }}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Email</h6>
+                            </div>
+                            <div class="col-sm-9 text-dark">
+                                {{ user.email }}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Address</h6>
+                            </div>
+                            <div class="col-sm-9 text-dark">
+                                {{ user.profile.address }}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Phone</h6>
+                            </div>
+                            <div class="col-sm-9 text-dark">
+                                {{ user.profile.phone }}
+                            </div>
+                        </div>
+                        <hr>
+
+                    </div>
+                </div>
+                <hr>
+                <div class="text-center">
+                    <a class="btn btn-sm btn-info" href="{% url 'dashboard:profile_update' user.id %}">Edit</a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

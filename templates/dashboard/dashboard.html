@@ -231,7 +231,7 @@
                 data: {
                     labels: [{% for i in qs %}'{{i.name}}',{% endfor %}],
                     datasets: [{
-                        label: '',
+                        label: 'Customer',
                         data: [{% for i in qs %}{{i.balance}}, {% endfor %}],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',

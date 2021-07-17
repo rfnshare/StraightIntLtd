@@ -1,0 +1,13 @@
+{% extends 'partials/main.html' %}
+{% load crispy_forms_filters %}
+{% load static %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ user_form|crispy }}
+        {{ profile_form|crispy }}
+        <br>
+        <button type="submit" class="btn btn-primary">Update</button>
+
+    </form>
+{% endblock %}
