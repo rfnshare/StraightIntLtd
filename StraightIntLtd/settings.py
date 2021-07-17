@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'sell.apps.SellConfig',
     'website.apps.WebsiteConfig',
     'crispy_forms',
-    'sweetify'
+    'sweetify',
+    'reportlab'
+
 ]
 
 MIDDLEWARE = [

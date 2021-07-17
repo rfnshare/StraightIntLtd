@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
@@ -5,6 +6,8 @@ from django.shortcuts import render, redirect
 from django.views.generic import *
 from django.urls import reverse_lazy
 from django.contrib import messages
+
+from sell.models import Invoice
 from .models import *
 from django.contrib import messages
 from django.views import View
@@ -18,7 +21,8 @@ from .forms import *
 
 class CustomerCreateView(LoginRequiredMixin, CreateView):
     model = Customer
-    form_class = CustomerForm
+    form_class = CustomerCreateForm
+    paginate_by = 10
     template_name = 'customer/create_customer.html'
     success_url = reverse_lazy('customer:customer_list')
     success_message = "%(name)s was created successfully."
@@ -38,6 +42,7 @@ class CustomerListView(LoginRequiredMixin, ListView):
     model = Customer
     template_name = 'customer/customer_list.html'
     paginate_by = 10
+    extra_context = {'invoice_balance': Invoice.objects.all()}
 
 
 class CustomerUpdateView(LoginRequiredMixin, UpdateView):

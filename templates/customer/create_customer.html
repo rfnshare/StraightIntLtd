@@ -1,15 +1,65 @@
 {% extends 'dashboard/dashboard.html' %}
 {% load crispy_forms_filters %}
 {% load crispy_forms_tags %}
+{% load static %}
 {% block content %}
-    <form method="post">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <br>
-        <button type="submit" class="btn btn-primary">Create</button>
+    <div class="container-fluid">
+        <h3 class="text-dark mb-4">Customer Creation Page</h3>
+        <div class="row mb-3">
+            <div class="col-lg-4">
+                <div class="card mb-3">
+                    <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4"
+                                                                   src="{% static '/dashboard/img/61928672_2299563540103978_671004437166161920_n.jpg' %}"
+                                                                   width="160"
+                                                                   height="160">
+                        <div class="mb-3">
+                            <button class="btn btn-primary btn-sm" type="button">Change Photo</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <p class="text-primary m-0 fw-bold">Extra Address &nbsp<i class="fas fa-plus"></i></p>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3"><label class="form-label"
+                                                     for="extra_address"><strong>Address</strong></label><input
+                                    class="form-control" type="text" id="extra_address" placeholder="Sunset Blvd, 38"
+                                    name="extra_address"></div>
 
-        <a class="btn btn-success" href="{% url 'customer:customer_list' %}">List</a>
+                            <div class="mb-3">
+                                <button class="btn btn-primary btn-md" type="submit">Save&nbsp;Settings</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col">
+                        <div class="card shadow mb-3">
+                            <div class="card-header py-3">
+                                <p class="text-primary m-0 fw-bold">Create Customer</p>
+                            </div>
+                            <div class="card-body">
+                                <form method="post">
+                                    {% csrf_token %}
+                                    {{ form|crispy }}
+                                    <br>
+                                    <button type="submit" class="btn btn-primary">Create</button>
 
-    </form>
+                                    <a class="btn btn-success" href="{% url 'customer:customer_list' %}">List</a>
+
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 {% endblock %}
