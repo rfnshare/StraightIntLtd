@@ -1,50 +1,106 @@
 <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
-        <div class="container-fluid d-flex flex-column p-0"><a
-                class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
-            <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
-            <div class="sidebar-brand-text mx-3"><span>Straight Ltd</span></div>
-        </a>
-            <hr class="sidebar-divider my-0">
-            <ul class="navbar-nav text-light" id="accordionSidebar">
-                <li class="nav-item"><a class="nav-link active" href="{% url 'dashboard:index' %}"><i
-                        class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+    <div class="container-fluid d-flex flex-column p-0"><a
+            class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+        <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
+        <div class="sidebar-brand-text mx-3"><span>Straight Ltd</span></div>
+    </a>
+        <hr class="sidebar-divider my-0">
+        <ul class="navbar-nav text-light" id="accordionSidebar">
+            <li class="nav-item"><a class="nav-link active" href="{% url 'dashboard:index' %}"><i
+                    class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
 
-                <li class="nav-item dropdown">
-                    <a href="#customer" aria-expanded="false" data-toggle="collapse"
-                                                 class="dropdown-toggle nav-link " href="#"><i
-                        class="fa fa-binoculars"></i><span>Customers</span></a>
-                    <div class="dropdown-menu collapse list-unstyled" id="customer">
-                        <a class="dropdown-item" href={% url 'customer:create_customer' %}>Add Customer</a>
-                        <a class="dropdown-item" href="{% url 'customer:customer_list' %}">Manage Customer</a>
+            <li class="nav-item dropdown">
+                <a href="#sell" aria-expanded="false" data-toggle="collapse" class="dropdown-toggle nav-link" href="#">
+                    <i class="fa fa-hand-paper-o"></i>Sell </a>
+                <div class="dropdown-menu collapse list-unstyled" id="sell">
+                    <a class="dropdown-item" href={% url 'sell:create' %}>Add New Invoice</a>
+                    <a class="dropdown-item" href="{% url 'sell:list' %}">Manage Invoice</a>
 
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="#product" aria-expanded="false" data-toggle="collapse"
-                                                 class="dropdown-toggle nav-link" href="#"><i
-                        class="fa fa-paper-plane-o"></i><span>Products</span></a>
-                    <div class="dropdown-menu collapse list-unstyled" id="product">
-                        <a class="dropdown-item" href={% url 'product:index' %}>Add Product</a>
-                        <a class="dropdown-item" href="#">Manage Product</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#product" aria-expanded="false" data-toggle="collapse"
+                   class="dropdown-toggle nav-link" href="#"><i
+                        class="fa fa-paper-plane-o"></i><span>SUITE</span></a>
+                <div class="dropdown-menu collapse list-unstyled" id="product">
+                    <a class="dropdown-item" href=#>Category</a>
+                    <a class="dropdown-item" href={% url 'product:index' %}>Add Product</a>
+                    <a class="dropdown-item" href="#">Manage Product</a>
 
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="#sell" aria-expanded="false" data-toggle="collapse" class="dropdown-toggle nav-link" href="#">
-                        <i class="fa fa-hand-paper-o"></i>Sell Management </a>
-                    <div class="dropdown-menu collapse list-unstyled" id="sell">
-                        <a class="dropdown-item" href={% url 'sell:create' %}>New Sell</a>
-                        <a class="dropdown-item" href="{% url 'sell:list' %}">Manage Sell</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#customer" aria-expanded="false" data-toggle="collapse"
+                   class="dropdown-toggle nav-link " href="#"><i class="fas fa-handshake"></i><span>Customers</span></a>
+                <div class="dropdown-menu collapse list-unstyled" id="customer">
+                    <a class="dropdown-item" href={% url 'customer:create_customer' %}>Add Customer</a>
+                    <a class="dropdown-item" href="{% url 'customer:customer_list' %}">Manage Customer</a>
 
-                    </div>
-                </li>
-            </ul>
+                </div>
+            </li>
 
-    <!-- git add . 
-     git commit -m "massage" -->
+            <li class="nav-item dropdown">
+                <a href="#Supplier" aria-expanded="false" data-toggle="collapse"
+                   class="dropdown-toggle nav-link"><i class="fas fa-male"></i><span>Supplier</span></a>
+                <div class="dropdown-menu collapse list-unstyled" id="Supplier">
+                    <a class="dropdown-item" href="#">Add Supplier</a>
+                    <a class="dropdown-item" href="#">Manage Supplier</a>
+                </div>
+            </li>
 
-            <div class="text-center d-none d-md-inline">
-                <button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button>
-            </div>
+            <li class="nav-item dropdown">
+                <a href="#Purchase" aria-expanded="false" data-toggle="collapse"
+                   class="dropdown-toggle nav-link "><i class="fas fa-shopping-cart"></i><span>Purchase</span></a>
+                <div class="dropdown-menu collapse list-unstyled" id="Purchase">
+                    <a class="dropdown-item" href="#">Add Purchase</a>
+                    <a class="dropdown-item" href="#">Manage Purchase</a>
+
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a href="#Accounts" aria-expanded="false" data-toggle="collapse"
+                   class="dropdown-toggle nav-link "><i class="fas fa-money-check-alt"></i><span>Accounts</span></a>
+                <div class="dropdown-menu collapse list-unstyled" id="Accounts">
+                    <a class="dropdown-item" href=#>Create Account</a>
+                    <a class="dropdown-item" href="#">Manage Account</a>
+                    <a class="dropdown-item" href="#">Payment</a>
+                    <a class="dropdown-item" href="#">Manage Transaction</a>
+
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a href="#Report" aria-expanded="false" data-toggle="collapse"
+                   class="dropdown-toggle nav-link "><i class="fas fa-book-open"></i><span>Report</span></a>
+                <div class="dropdown-menu collapse list-unstyled" id="Report">
+                    <a class="dropdown-item" href="#">Purchase Report</a>
+                    <a class="dropdown-item" href="#">Sales Report</a>
+                    <a class="dropdown-item" href="#">Profit Report</a>
+                    <a class="dropdown-item" href="#">Today Report</a>
+
+                </div>
+            </li>
+
+
+            <li class="nav-item dropdown">
+                <a href="#Settings" aria-expanded="false" data-toggle="collapse"
+                   class="dropdown-toggle nav-link "><i class="fas fa-cogs"></i></i><span>Software Settings</span></a>
+                <div class="dropdown-menu collapse list-unstyled" id="Settings">
+                    <a class="dropdown-item" href="#">Add User</a>
+                    <a class="dropdown-item" href="#">Manage User</a>
+                    <a class="dropdown-item" href="#">Language</a>
+                    <a class="dropdown-item" href="#">Setting</a>
+
+                </div>
+            </li>
+        </ul>
+
+        <!-- git add .
+         git commit -m "massage" -->
+
+        <div class="text-center d-none d-md-inline">
+            <button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button>
         </div>
-    </nav>
+    </div>
+</nav>
