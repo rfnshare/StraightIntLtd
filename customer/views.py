@@ -19,7 +19,7 @@ from .forms import *
 
 class CustomerCreateView(LoginRequiredMixin, CreateView):
     model = Customer
-    form_class = CustomerForm
+    form_class = CustomerCreateForm
     paginate_by = 10
     template_name = 'customer/create_customer.html'
     success_url = reverse_lazy('customer:customer_list')
