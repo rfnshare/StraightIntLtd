@@ -58,7 +58,7 @@
                                     {#                                    <td>{{ i.email }}</td>#}
                                     {#                                    <td>{{ i.address }}</td>#}
                                     {#                                    <td>{{ i.phone }}</td>#}
-                                                                        <td>৳{{ i.balance }}</td>
+                                                                        <td>৳{{ i.name.balance}}</td>
                                     <td><a class="btn btn-sm btn-success"
                                            href="{% url 'sell:pdf' i.id %}">View Bill</a>
                                     </td>
