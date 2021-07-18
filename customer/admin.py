@@ -6,7 +6,7 @@ from .models import *
 
 @admin.register(Customer)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ['uid', 'name', 'email', 'phone', 'address', 'view_name']
+    list_display = ['uid', 'name', 'email', 'phone', 'address', 'view_name', 'created_at', 'updated_at']
 
     @admin.display(empty_value='???')
     def view_name(self, obj):

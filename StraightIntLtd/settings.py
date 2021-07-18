@@ -13,6 +13,8 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import pytz
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -110,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Dhaka'
 
 USE_I18N = True
 
@@ -142,5 +144,4 @@ LOGIN_URL = 'dashboard:login'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
-
 
