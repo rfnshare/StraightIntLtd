@@ -37,6 +37,7 @@
                         </div>
                     </div>
                 </div>
+            <h1>Articles</h1>
                 <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                     <table class="table my-0" id="dataTable">
                         <thead>
@@ -57,7 +58,7 @@
                             {% for i in page_obj %}
                                 <tr>
                                     <td><input type="checkbox" name="foo" value="bar1"></td>
-                                    <td>{{ i.uid }}</td>
+                                    <td><img class="rounded-circle me-2" width="30" height="30" src="{{ i.image.url }}" alt="logo"/>{{ i.uid }}</td>
                                     <td>{{ i.name }}</td>
                                     <td>{{ i.email }}</td>
                                     <td>{{ i.address }}</td>
@@ -73,7 +74,7 @@
                                     </td>
 
                                 </tr>
-                            {% endfor %}
+                                    {% endfor %}
                         {% endif %}
                         </tbody>
 

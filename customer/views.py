@@ -1,3 +1,4 @@
+from django.db.models import Sum
 from django.http import HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
@@ -25,6 +26,7 @@ class CustomerCreateView(LoginRequiredMixin, CreateView):
     paginate_by = 10
     template_name = 'customer/create_customer.html'
     success_message = "%(name)s was created successfully."
+    success_url = reverse_lazy("customer:customer_list")
 
     def form_valid(self, form):
         success_message = self.get_success_message(form.cleaned_data)
@@ -36,16 +38,20 @@ class CustomerCreateView(LoginRequiredMixin, CreateView):
     def get_success_message(self, cleaned_data):
         return self.success_message % cleaned_data
 
-    def get_success_url(self, **kwargs):
-        # obj = form.instance or self.object
-        return reverse("customer:customer_details", kwargs={'pk': self.object.pk})
+    # def get_success_url(self, **kwargs):
+    #     # obj = form.instance or self.object
+    #     return reverse("customer:customer_details", kwargs={'pk': self.object.pk})
 
 
 class CustomerListView(LoginRequiredMixin, ListView):
     model = Customer
     template_name = 'customer/customer_list.html'
     paginate_by = 10
-    extra_context = {'invoice_balance': Invoice.objects.all()}
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['invoice_balance'] = Invoice.objects.all()
+        return context
 
 
 class CustomerUpdateView(LoginRequiredMixin, UpdateView):
@@ -53,6 +59,7 @@ class CustomerUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'customer/customer_edit.html'
     form_class = CustomerUpdateForm
     success_message = "%(name)s was updated successfully."
+    success_url = reverse_lazy("customer:customer_list")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -69,9 +76,9 @@ class CustomerUpdateView(LoginRequiredMixin, UpdateView):
     def get_success_message(self, cleaned_data):
         return self.success_message % cleaned_data
 
-    def get_success_url(self, **kwargs):
-        # obj = form.instance or self.object
-        return reverse("customer:customer_details", kwargs={'pk': self.object.pk})
+    # def get_success_url(self, **kwargs):
+    #     # obj = form.instance or self.object
+    #     return reverse("customer:customer_details", kwargs={'pk': self.object.pk})
 
 
 class CustomerDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
