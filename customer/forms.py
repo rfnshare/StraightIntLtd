@@ -22,5 +22,13 @@ class CustomerCreateForm(forms.ModelForm):
 class CustomerUpdateForm(forms.ModelForm):
     class Meta:
         model = Customer
-        exclude = ('balance',)
+        exclude = ('balance', )
         fields = "__all__"
+
+
+class CustomerUpdateImageForm(forms.ModelForm):
+    # image = forms.ImageField(widget=forms.FileInput(attrs={'class': 'btn btn-primary btn-sm'}))
+
+    class Meta:
+        model = Customer
+        fields = ['image', ]

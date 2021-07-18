@@ -43,7 +43,7 @@
                                 <p class="text-primary m-0 fw-bold">Create Customer</p>
                             </div>
                             <div class="card-body">
-                                <form method="post">
+                                <form method="post" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     {{ form|crispy }}
                                     <br>

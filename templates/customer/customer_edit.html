@@ -9,11 +9,12 @@
             <div class="col-lg-4">
                 <div class="card mb-3">
                     <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4"
-                                                                   src="{% static '/dashboard/img/61928672_2299563540103978_671004437166161920_n.jpg' %}"
+                                                                   src="{{ customer.image.url }}"
                                                                    width="160"
-                                                                   height="160">
+                                                                   height="160" alt="logo">
                         <div class="mb-3">
-                            <button class="btn btn-primary btn-sm" type="button">Change Photo</button>
+{#                            <button class="btn btn-primary btn-sm" type="button">Change Photo</button>#}
+{#                            {{ image_form}}#}
                         </div>
                     </div>
                 </div>
@@ -36,10 +37,10 @@
                     <div class="col">
                         <div class="card shadow mb-3">
                             <div class="card-header py-3">
-                                <p class="text-primary m-0 fw-bold">Create Customer</p>
+                                <p class="text-primary m-0 fw-bold">Update Customer</p>
                             </div>
                             <div class="card-body">
-                                <form method="post">
+                                <form method="post" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     <div class="container">
                                         <div class="form-row ">

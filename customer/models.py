@@ -10,6 +10,7 @@ class Customer(models.Model):
     phone = models.CharField(max_length=100, null=True)
     balance = models.IntegerField()
     uid = models.CharField(max_length=100, null=True)
+    image = models.ImageField(default='avartar.jpg', upload_to='customer_pic')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
