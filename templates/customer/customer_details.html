@@ -94,7 +94,8 @@
                 </div>
                 <hr>
                 <div class="text-center">
-                    <a class="btn btn-sm btn-info" href="{% url 'customer:customer_edit' customer.id %}">Edit</a>
+                    <a class="btn btn-sm btn-success me-2" href="{% url 'customer:customer_ledger' customer.id %}">Ledger</a>
+                    <a class="btn btn-sm btn-info me-2" href="{% url 'customer:customer_edit' customer.id %}">Edit</a>
 
                     <a class="btn btn-sm btn-danger"
                        href="{% url 'customer:customer_delete' customer.id %}">Delete</a>

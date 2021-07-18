@@ -17,7 +17,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['qs'] = Customer.objects.all()
+        context['qs'] = Invoice.objects.all()
         context['total_customer'] = Customer.objects.all().count()
         context['total_invoices'] = Invoice.objects.all().count()
         return context

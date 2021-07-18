@@ -87,7 +87,7 @@
         <div class="col-lg-7 col-xl-8">
             <div class="card shadow mb-4">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h6 class="text-primary fw-bold m-0">Pending Balance</h6>
+                    <h6 class="text-primary fw-bold m-0">Earnings Overview</h6>
                     <div class="dropdown no-arrow">
                         <button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false"
                                 data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i>
@@ -106,7 +106,7 @@
         <div class="col-lg-5 col-xl-4">
             <div class="card shadow mb-4">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h6 class="text-primary fw-bold m-0">Sell</h6>
+                    <h6 class="text-primary fw-bold m-0">Revenue Sources</h6>
                     <div class="dropdown no-arrow">
                         <button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false"
                                 data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i>
@@ -194,7 +194,7 @@
                 data: {
                     labels: [{% for i in qs %}'{{i.name}}',{% endfor %}],
                     datasets: [{
-                        label: '',
+                        label: 'Sample',
                         data: [{% for i in qs %}{{i.balance}}, {% endfor %}],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
@@ -232,7 +232,7 @@
                     labels: [{% for i in qs %}'{{i.name}}',{% endfor %}],
                     datasets: [{
                         label: 'Customer',
-                        data: [{% for i in qs %}{{i.invoice_set.count}}, {% endfor %}],
+                        data: [{% for i in qs %}{{i.balance}}, {% endfor %}],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',

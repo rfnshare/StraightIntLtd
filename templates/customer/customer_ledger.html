@@ -2,7 +2,6 @@
 
 {% block content %}
     <div class="container-fluid">
-        <h3 class="text-dark mb-4 text-center">Customer List</h3>
         <div class="card shadow">
             <div class="card-header py-3">
                 <p class="text-primary m-0 fw-bold">Customer Info</p>
@@ -60,7 +59,8 @@
                                     <td><input type="checkbox" name="foo" value="bar1"></td>
                                     <td><img class="rounded-circle me-2" width="30" height="30" src="{{ i.image.url }}"
                                              alt="logo"/><a
-                                            style="text-decoration: none" href="{% url  'customer:customer_details' i.id %}">{{ i.uid }}</a></td>
+                                            style="text-decoration: none"
+                                            href="{% url  'customer:customer_details' i.id %}">{{ i.uid }}</a></td>
                                     <td>{{ i.name }}</td>
                                     <td>{{ i.email }}</td>
                                     <td>{{ i.address }}</td>
@@ -126,5 +126,4 @@
             </div>
         </div>
     </div>
-
 {% endblock %}

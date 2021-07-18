@@ -97,6 +97,12 @@ class CustomerDetailsView(LoginRequiredMixin, DetailView):
     model = Customer
     template_name = 'customer/customer_details.html'
 
+
+def CustomerLedgerView(request, pk):
+    customer = Customer.objects.get(id=pk)
+    ctx = {'customer': customer}
+    return render(request, 'customer/customer_ledger.html', ctx)
+
 # def create_customer(request):
 #     form = CustomerForm()
 #     if request.method == 'POST':
