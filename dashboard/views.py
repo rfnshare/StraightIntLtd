@@ -12,7 +12,7 @@ from django.urls import reverse_lazy
 # Create your views here.
 
 
-class DashboardView(TemplateView):
+class DashboardView(LoginRequiredMixin, TemplateView):
     template_name = 'dashboard/dashboard.html'
 
     def get_context_data(self, **kwargs):
@@ -23,7 +23,7 @@ class DashboardView(TemplateView):
         return context
 
 
-class ProfileView(DetailView):
+class ProfileView(LoginRequiredMixin,DetailView):
     template_name = 'dashboard/profile.html'
     model = User
 
