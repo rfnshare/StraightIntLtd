@@ -4,49 +4,27 @@
 {% load static %}
 {% block content %}
     <div class="container-fluid">
-        <h3 class="text-dark mb-4">Customer Creation Page</h3>
+        <h3 class="text-dark mb-4 text-center">Customer Creation Page</h3>
         <div class="row mb-3">
-            <div class="col-lg-4">
 
-                <div class="card shadow mb-4">
+            <div class="row">
+                <div class="card shadow mb-3 mx-auto" style="width: 38rem;">
                     <div class="card-header py-3">
-                        <p class="text-primary m-0 fw-bold">Extra Address &nbsp<i class="fas fa-plus"></i></p>
+                        <p class="text-primary m-0 fw-bold">Create Customer</p>
                     </div>
                     <div class="card-body">
-                        <form>
-                            <div class="mb-3"><label class="form-label"
-                                                     for="extra_address"><strong>Address</strong></label><input
-                                    class="form-control" type="text" id="extra_address" placeholder="Sunset Blvd, 38"
-                                    name="extra_address"></div>
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <br>
+                            <button type="submit" class="btn btn-primary">Create</button>
 
-
+                            <a class="btn btn-success" href="{% url 'customer:customer_list' %}">List</a>
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8">
-                <div class="row">
-                    <div class="col">
-                        <div class="card shadow mb-3">
-                            <div class="card-header py-3">
-                                <p class="text-primary m-0 fw-bold">Create Customer</p>
-                            </div>
-                            <div class="card-body">
-                                <form method="post" enctype="multipart/form-data">
-                                    {% csrf_token %}
-                                    {{ form|crispy }}
-                                    <br>
-                                    <button type="submit" class="btn btn-primary">Create</button>
 
-                                    <a class="btn btn-success" href="{% url 'customer:customer_list' %}">List</a>
-
-                                </form>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
