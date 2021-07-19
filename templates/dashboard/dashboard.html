@@ -11,6 +11,8 @@
                     <i class="fas fa-check fa-sm text-white-50"></i> Sell</a>
                 <a class="btn btn-info btn-md d-none d-sm-inline-block" role="button" href="#">
                     <i class="fab fa-paypal fa-sm text-white-50"></i> Payment</a>
+                <a class="btn btn-success btn-md d-none d-sm-inline-block" role="button" href="#">
+                    <i class="fas fa-store-alt fa-sm text-white-50"></i> Purchase</a>
             </div>
         </div>
 
@@ -88,17 +90,9 @@
             <div class="card shadow mb-4">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h6 class="text-primary fw-bold m-0">Earnings Overview</h6>
-                    <div class="dropdown no-arrow">
-                        <button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false"
-                                data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i>
-                        </button>
-
-                    </div>
                 </div>
                 <div class="card-body">
-
                     <canvas id="myChart" style="display: block; height: 200px; width: 372px;"></canvas>
-
                 </div>
             </div>
         </div>
@@ -107,11 +101,6 @@
             <div class="card shadow mb-4">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h6 class="text-primary fw-bold m-0">Revenue Sources</h6>
-                    <div class="dropdown no-arrow">
-                        <button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false"
-                                data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i>
-                        </button>
-                    </div>
                 </div>
                 <div class="card-body">
                     <div class="chart-area">
@@ -276,6 +265,7 @@
             </div>
         </div>
     </div>
+
     <script>
 
         window.onload = function onCLick() {
@@ -285,7 +275,7 @@
                 data: {
                     labels: [{% for i in qs %}'{{i.name}}',{% endfor %}],
                     datasets: [{
-                        label: 'Sample',
+                        label: 'Earnings Overview',
                         data: [{% for i in qs %}{{i.balance}}, {% endfor %}],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
@@ -318,7 +308,7 @@
             //Pie chart
             var ctx = document.getElementById('PieChart').getContext('2d');
             var PieChart = new Chart(ctx, {
-                type: 'pie',
+                type: 'doughnut',
                 data: {
                     labels: [{% for i in qs %}'{{i.name}}',{% endfor %}],
                     datasets: [{

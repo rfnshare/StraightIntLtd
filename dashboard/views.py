@@ -13,15 +13,27 @@ from .forms import *
 class DashboardView(LoginRequiredMixin, TemplateView):
     template_name = 'dashboard/dashboard.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['qs'] = Invoice.objects.all()
-        context['total_customer'] = Customer.objects.all().count()
-        context['total_invoices'] = Invoice.objects.all().count()
-        return context
+    def get(self, request):
+        labels = []
+        data = []
+        invoice = Invoice.objects.all()
+        total_customer = Customer.objects.all().count()
+        total_invoices = Invoice.objects.all().count()
+        for item in invoice:
+            labels.append(item.name)
+            data.append(item.balance)
+        # context = super().get_context_data(**kwargs)
+        ctx = {
+            'qs': invoice,
+            'labels': labels,
+            'data': data,
+            'total_customer': total_customer,
+            'total_invoices': total_invoices
+        }
+        return render(request, self.template_name, ctx)
 
 
-class ProfileView(LoginRequiredMixin,DetailView):
+class ProfileView(LoginRequiredMixin, DetailView):
     template_name = 'dashboard/profile.html'
     model = User
 
