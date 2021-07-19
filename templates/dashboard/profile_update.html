@@ -3,42 +3,37 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
-    <div class="container-fluid">
-        <h3 class="text-dark mb-4">Admin Profile Updated Page</h3>
-        <div class="row mb-3">
-            <div class="col-lg-4">
-                <div class="card mb-3">
-                    <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4"
-                                                                   src="{{ user.profile.photo.url }}"
-                                                                   width="160"
-                                                                   height="160">
-
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-lg-8">
-                <div class="row">
-                    <div class="col">
-                        <div class="card shadow mb-3">
-                            <div class="card-header py-3">
-                                <p class="text-primary m-0 fw-bold">Admin Profile Update</p>
-                            </div>
-                            <div class="card-body">
-                                <form method="post" enctype="multipart/form-data">
-                                    {% csrf_token %}
-                                    {{ user_form|crispy }}
-                                    {{ profile_form|crispy }}
-                                    <br>
-                                    <button type="submit" class="btn btn-primary">Update</button>
-
-                                </form>
-                            </div>
-                        </div>
-
-                    </div>
+    <div class="d-sm-flex justify-content-center align-items-center mb-4">
+        <h3 class="text-dark mb-0">Admin Profile Updated Page</h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-5 col-xl-4 align-items-stretch mx-auto">
+            <div class="card">
+                <div class="card-body text-center shadow">
+                    <img class="rounded-circle mb-3 mt-4" src="{{ user.profile.photo.url }}" width="160" height="160"
+                         alt="Image">
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-7 col-xl-8 mx-auto">
+            <div class="card shadow mb-3">
+                <div class="card-header py-3">
+                    <p class="text-primary m-0 fw-bold">Admin Profile Update</p>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ user_form|crispy }}
+                        {{ profile_form|crispy }}
+                        <br>
+                        <button type="submit" class="btn btn-primary">Update</button>
+
+                    </form>
+                </div>
+            </div>
+
         </div>
     </div>
 

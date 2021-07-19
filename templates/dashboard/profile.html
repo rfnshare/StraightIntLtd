@@ -4,20 +4,19 @@
     <div class="d-sm-flex justify-content-center align-items-center mb-4">
         <h3 class="text-dark mb-0">Admin Profile</h3>
     </div>
-
-
     <div class="row">
-        <div class="col-lg-5 col-xl-4 align-items-stretch">
-            <div class="card ">
+        <div class="col-lg-5 col-xl-4 align-items-stretch mx-auto">
+            <div class="card">
                 <div class="card-body text-center shadow">
-                    <img class="rounded-circle mb-3 mt-4" src="{{ user.profile.photo.url }}" width="160" height="160" alt="Image">
+                    <img class="rounded-circle mb-3 mt-4" src="{{ user.profile.photo.url }}" width="160" height="160"
+                         alt="Image">
                 </div>
             </div>
-
         </div>
-        <div class="col-lg-7 col-xl-8">
+    </div>
+    <div class="row">
+        <div class="col-lg-7 col-xl-8 mx-auto">
             <div class="card shadow mb-4">
-
                 <div class="card-body ">
                     <div class="container">
                         <div class="row">
@@ -72,14 +71,12 @@
                             </div>
                         </div>
                         <hr>
-
                     </div>
                 </div>
-                <hr>
                 <div class="text-center">
                     <a class="btn btn-sm btn-info" href="{% url 'dashboard:profile_update' user.id %}">Edit</a>
-
                 </div>
+                <br>
 
             </div>
         </div>
