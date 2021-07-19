@@ -1,4 +1,4 @@
-<!--
+﻿<!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
 *** or simply open an issue with the tag "enhancement".
@@ -104,7 +104,7 @@ Dashboard:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running follow these simple steps.
+A simple inventory management system built with Django. Users can add stock item and generate bills. All data is stored in database and are rendered in real time
 
 ### Prerequisites
 
@@ -125,7 +125,7 @@ This is an example of how to list things you need to use the software and how to
    pip install -r requirements.txt
    ```
    
-3. Migrations
+3. After the first time, the following can be run to migrate model changes in any app
    ```sh
    python manage.py makemigrations
    ```
@@ -133,7 +133,7 @@ This is an example of how to list things you need to use the software and how to
    python manage.py migrate
    ```
    
-3. Create User
+3. Use the following command to create an admin user
    ```sh
    python manage.py createsuperuser
    ```
