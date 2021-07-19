@@ -5,8 +5,9 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import *
-
+from django_filters.views import FilterView
 from sell.models import Invoice
+from .filters import *
 from .forms import *
 
 
@@ -38,15 +39,11 @@ class CustomerCreateView(LoginRequiredMixin, CreateView):
     #     return reverse("customer:customer_details", kwargs={'pk': self.object.pk})
 
 
-class CustomerListView(LoginRequiredMixin, ListView):
-    model = Customer
+class CustomerListView(LoginRequiredMixin, FilterView):
+    filterset_class = CustomerFilter
+    queryset = Customer.objects.all()
     template_name = 'customer/customer_list.html'
     paginate_by = 10
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['invoice_balance'] = Invoice.objects.all()
-        return context
 
 
 class CustomerUpdateView(LoginRequiredMixin, UpdateView):

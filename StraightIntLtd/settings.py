@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'website.apps.WebsiteConfig',
     'crispy_forms',
     'sweetify',
-    'reportlab'
+    'reportlab',
+    'widget_tweaks',
 
 ]
 
@@ -63,7 +64,7 @@ ROOT_URLCONF = 'StraightIntLtd.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [BASE_DIR / 'templates']  # included 'templates' directory for django to access the html templates
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -141,7 +142,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'dashboard:index'
 LOGIN_URL = 'dashboard:login'
+LOGIN_REQUIRED_IGNORE_VIEW_NAMES = [  # urls ignored by the login_required. Can be accessed with out logging in
+    'dashboard:login',
+    'dashboard:logout',
+    'website:site_home'
+]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
-
