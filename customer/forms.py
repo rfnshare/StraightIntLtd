@@ -7,6 +7,7 @@ class CustomerCreateForm(forms.ModelForm):
     class Meta:
         model = Customer
         fields = "__all__"
+        exclude = ('is_deleted',)
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Abdullah Al Faroque'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'rfnshare@gmail.com'}),

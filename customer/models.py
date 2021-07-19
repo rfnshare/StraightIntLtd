@@ -13,6 +13,7 @@ class Customer(models.Model):
     image = models.ImageField(default='avartar.jpg', upload_to='customer_pic')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    is_deleted = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

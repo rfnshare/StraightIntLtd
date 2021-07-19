@@ -4,27 +4,37 @@
     <div class="container-fluid">
         <h3 class="text-dark mb-4 text-center">Customer List</h3>
         <div class="card shadow">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="card-header py-4">
-                        <p class="text-primary m-0 fw-bold">Customer Info</p>
+            <div class="card-header py-4">
+                <div class="row align-items-center">
+                    <div class="col-md-4 ">
+                        <h5 class="text-primary m-0 fw-bold">Customer Info</h5>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card-header py-3">
-                        <div class="text-md-end dataTables_filter" id="dataTable_filter">
-                            <label class="form-label">
-                                <form action="" method="get">
-                                    {% render_field filter.form.name class="textinput" placeholder="Search" %}
-                                    <button type="submit" class="btn btn-sm btn-info"> Search</button>
-                                </form>
-                                {#                                <input type="text" id="myInput" class="form-control form-control-sm"#}
-                                {#                                       aria-controls="dataTable" placeholder="Search" onkeyup="searchFun()"/>#}
-                            </label>
+                    <div class="col-md-4">
+                        {% if messages %}
+                            <ul class="messages">
+                                {% for message in messages %}
+                                    <span class="{{ message.tags }}">{{ message }}</span>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-header py-4">
+                            <form action="" method="get">
+                                <div class="input-group">
+                                    <div class="form-outline">
+                                        {% render_field filter.form.name class="form-control textinput" placeholder="Search" %}
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </form>
 
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -43,13 +53,7 @@
                 {#                        </div>#}
             </div>
             <div class="col-md-2 text-nowrap">
-                {% if messages %}
-                    <ul class="messages">
-                        {% for message in messages %}
-                            <span class="{{ message.tags }}">{{ message }}</span>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
+
             </div>
             <div class="col-md-6">
 

@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div style="text-align: center;">
-        <h1>Are you sure, You went to delete <span class="text-danger">{{ customer.name }}</span>? </h1>
+        <h1>Are you sure, You went to delete <span class="text-danger">{{ object.name }}</span>? </h1>
         <form method="post">
             {% csrf_token %}
             <input class="btn btn-danger" type="submit" name="Delete" value="Delete">

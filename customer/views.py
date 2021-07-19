@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import *
 from django_filters.views import FilterView
@@ -41,7 +41,7 @@ class CustomerCreateView(LoginRequiredMixin, CreateView):
 
 class CustomerListView(LoginRequiredMixin, FilterView):
     filterset_class = CustomerFilter
-    queryset = Customer.objects.all()
+    queryset = Customer.objects.filter(is_deleted=False)
     template_name = 'customer/customer_list.html'
     paginate_by = 10
 
@@ -83,6 +83,17 @@ class CustomerDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
         obj = self.get_object()
         messages.success(self.request, self.success_message % obj.__dict__, extra_tags='text-danger')
         return super(CustomerDeleteView, self).delete(request, *args, **kwargs)
+
+    def get(self, request, pk):
+        customer = get_object_or_404(Customer, pk=pk)
+        return render(request, self.template_name, {'object' : customer})
+
+    def post(self, request, pk):
+        customer = get_object_or_404(Customer, pk=pk)
+        customer.is_deleted = True
+        customer.save()
+        messages.success(request, self.success_message)
+        return redirect('customer:customer_list')
 
 
 class CustomerDetailsView(LoginRequiredMixin, DetailView):
