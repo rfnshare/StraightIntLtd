@@ -1,17 +1,12 @@
-from django.db.models import Sum
-from django.http import HttpResponse
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic import *
-from django.urls import reverse_lazy, reverse
-from django.contrib import messages
 
 from sell.models import Invoice
-from .models import *
-from django.contrib import messages
-from django.views import View
 from .forms import *
 
 

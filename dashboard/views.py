@@ -1,12 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import User
-from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect
+from django.views.generic import *
+
 from customer.models import *
 from sell.models import *
-from django.views.generic import *
 from .forms import *
-from django.urls import reverse_lazy
 
 
 # Create your views here.

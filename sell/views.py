@@ -1,16 +1,14 @@
+import io
+
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import FileResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
-
-from customer.models import Customer
-from .models import *
-from .forms import *
 # Create your views here.
-from django.views import View
 from django.views.generic import *
-import io
-from django.http import FileResponse
 from reportlab.pdfgen import canvas
+
+from .forms import *
 
 
 def index(request):
