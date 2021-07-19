@@ -47,7 +47,7 @@
     <br />
     <a href="https://rfnshare.github.io/straightintltd/">View Demo</a>
     ·
-    <a href="#">Report Bug</a>
+    <a href="https://github.com/RFNshare/StraightIntLtd/issues">Report Bug</a>
     ·
     <a href="#">Request Feature</a>
   </p>
@@ -79,19 +79,16 @@
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
-<script>
-	var scroll = new SmoothScroll('a[href*="#"]');
-</script>
 
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 Website:
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]]
 Dashboard:
 
-[![Dashboard Name Screen Shot][dashboard-screenshot]](https://example.com)
+[![Dashboard Name Screen Shot][dashboard-screenshot]]
 
 
 
@@ -167,9 +164,9 @@ See the [open issues](https://github.com/rfnshare/StraightIntLtd/issues) for a l
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
+2. Create your Feature Branch (`git checkout -b feature/Feature`)
+3. Commit your Changes (`git commit -m 'Add some Feature'`)
+4. Push to the Branch (`git push origin feature/Feature`)
 5. Open a Pull Request
 
 
@@ -209,7 +206,7 @@ SOFTWARE.
 
 Your Name - [@rfnshare](https://twitter.com/rfnshare) - rfnshare@gmail.com
 
-Project Link: [https://github.com/rfnshare/StraightIntLtd](https://github.com/rfnshare/StraightIntLtd)
+Project Link: [StraightIntLtd](https://github.com/rfnshare/StraightIntLtd)
 
 
 
