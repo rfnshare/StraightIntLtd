@@ -1,6 +1,3 @@
-# StraightIntLtd
-Official Application for Straight International Limited
-
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
@@ -33,27 +30,27 @@ Official Application for Straight International Limited
 
 
 <!-- PROJECT LOGO -->
+
 <br />
 <p align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="static/logor.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">project_title</h3>
+  <h3 align="center">Straight International Limited</h3>
 
   <p align="center">
-    project_description
+    Official Application for Straight International Limited
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="#"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://rfnshare.github.io/straightintltd/">View Demo</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    <a href="#">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="#">Request Feature</a>
   </p>
-</p>
 
 
 
@@ -87,19 +84,21 @@ Official Application for Straight International Limited
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+Website:
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
+Dashboard:
 
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
+[![Dashboard Name Screen Shot][dashboard-screenshot]](https://example.com)
+
+
 
 
 ### Built With
 
-* []()
-* []()
-* []()
+* [Django]()
+* [Bootstrap]()
+* [React]()
 
 
 
@@ -111,30 +110,45 @@ To get a local copy up and running follow these simple steps.
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* npm
+* Install python
   ```sh
-  npm install npm@latest -g
+  python --version
   ```
 
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/RFNshare/StraightIntLtd.git
    ```
-2. Install NPM packages
+2. Install packages
    ```sh
-   npm install
+   pip install -r requirements.txt
    ```
+   
+3. Migrations
+   ```sh
+   python manage.py makemigrations
+   ```
+   ```sh
+   python manage.py migrate
+   ```
+   
+3. Create User
+   ```sh
+   python manage.py createsuperuser
+   ```
+  
 
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+```sh
+   python manage.py runserver
+   ```
+For more examples, please refer to the [Documentation](https://example.com)
 
 
 
@@ -168,9 +182,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
+Abdullah Al Faroque - [@rfnshare](https://twitter.com/rfnshare) - rfnshare@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/RFNshare/StraightIntLtd.git](https://github.com/RFNshare/StraightIntLtd.git)
 
 
 
@@ -187,15 +201,18 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-url]: https://github.com/rfnshare/StraightIntLtd/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-url]: https://github.com/rfnshare/StraightIntLtd/network/members
+[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-url]: https://github.com/rfnshare/StraightIntLtd/stargazers
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-url]: https://github.com/rfnshare/StraightIntLtd/issues
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-url]: https://github.com/rfnshare/StraightIntLtd/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/github_username
+[linkedin-url]: https://linkedin.com/in/rfnshare
+[product-screenshot]: static/git_readme/Website.png
+[dashboard-screenshot]: static/git_readme/dashboard.png
+[logo]: static/git_readme/logo.png
