@@ -85,10 +85,10 @@
 ## About The Project
 Website:
 
-[![Product Name Screen Shot][product-screenshot]]
+![Product Name Screen Shot][product-screenshot]
 Dashboard:
 
-[![Dashboard Name Screen Shot][dashboard-screenshot]]
+![Dashboard Name Screen Shot][dashboard-screenshot]
 
 
 
