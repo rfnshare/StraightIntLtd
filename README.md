@@ -34,7 +34,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="static/logor.png" alt="Logo" width="80" height="80">
+    <img src="static/git_readme/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Straight International Limited</h3>
@@ -201,18 +201,17 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo/issues
+[contributors-shield]: https://img.shields.io/badge/contributors-2-brightgreen?style=for-the-badge
+[contributors-url]: https://github.com/rfnshare/StraightIntLtd/graphs/contributors
+[forks-shield]: https://img.shields.io/badge/froks-1-blue?style=for-the-badge
+[forks-url]: https://github.com/rfnshare/StraightIntLtd/network/members
+[stars-shield]: https://img.shields.io/badge/stars-0-red?style=for-the-badge
+[stars-url]: https://github.com/rfnshare/StraightIntLtd/stargazers
+[issues-shield]: https://img.shields.io/badge/issues-0-success?style=for-the-badge
+[issues-url]: https://github.com/rfnshare/StraightIntLtd/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/RFNshare/StraightIntLtd/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/rfnshare
 [product-screenshot]: static/git_readme/Website.png
 [dashboard-screenshot]: static/git_readme/dashboard.png
-[logo]: static/git_readme/logo.png
