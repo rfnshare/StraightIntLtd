@@ -33,7 +33,7 @@
 
 <br />
 <p align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/rfnshare/StraightIntLtd">
     <img src="static/git_readme/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -79,7 +79,9 @@
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
-
+<script>
+	var scroll = new SmoothScroll('a[href*="#"]');
+</script>
 
 
 <!-- ABOUT THE PROJECT -->
@@ -155,7 +157,7 @@ For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/rfnshare/StraightIntLtd/issues) for a list of proposed features (and known issues).
 
 
 
@@ -207,16 +209,16 @@ SOFTWARE.
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/rfnshare/StraightIntLtd](https://github.com/rfnshare/StraightIntLtd)
 
 
 
 <!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
+<!-- ## Acknowledgements -->
 
+<!-- * []()
 * []()
-* []()
-* []()
+* []() -->
 
 
 
