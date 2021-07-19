@@ -34,7 +34,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="static/git_readme/logo.png" alt="Logo" width="80" height="80">
+    <img src="static/logor.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Straight International Limited</h3>
@@ -110,7 +110,7 @@ To get a local copy up and running follow these simple steps.
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* Install python
+* python
   ```sh
   python --version
   ```
@@ -148,7 +148,7 @@ This is an example of how to list things you need to use the software and how to
 ```sh
    python manage.py runserver
    ```
-For more examples, please refer to the [Documentation](https://example.com)
+For more examples, please refer to the [Documentation](https://example.com)_
 
 
 
@@ -182,9 +182,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Abdullah Al Faroque - [@rfnshare](https://twitter.com/rfnshare) - rfnshare@gmail.com
+Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
 
-Project Link: [https://github.com/RFNshare/StraightIntLtd.git](https://github.com/RFNshare/StraightIntLtd.git)
+Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
 
 
 
@@ -202,13 +202,13 @@ Project Link: [https://github.com/RFNshare/StraightIntLtd.git](https://github.co
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/rfnshare/StraightIntLtd/graphs/contributors
+[contributors-url]: https://github.com/github_username/repo/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/rfnshare/StraightIntLtd/network/members
+[forks-url]: https://github.com/github_username/repo/network/members
 [stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/rfnshare/StraightIntLtd/stargazers
+[stars-url]: https://github.com/github_username/repo/stargazers
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/rfnshare/StraightIntLtd/issues
+[issues-url]: https://github.com/github_username/repo/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/rfnshare/StraightIntLtd/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
