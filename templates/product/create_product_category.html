@@ -1,40 +1,25 @@
-{% extends 'dashboard/dashboard.html' %}
+{% extends 'partials/main.html' %}
 {% load widget_tweaks %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
 {% block content %}
     <div class="container-fluid">
-        <h3 class="text-dark mb-4 text-center">Product List</h3>
-        <div class="card shadow">
-            <div class="card-header py-4">
-                <div class="row align-items-center">
-                    <div class="col-md-4 ">
-                        <h5 class="text-primary m-0 fw-bold">Product Info</h5>
+        <h3 class="text-dark mb-1 text-center">Category Creation Page</h3>
+        <div class="row mb-3">
+            <div class="row">
+                <div class="card shadow mb-1 mx-auto" style="width: 38rem;">
+                    <div class="card-header py-3">
+                        <p class="text-primary m-0 fw-bold">Create Category</p>
                     </div>
-                    <div class="col-md-4">
-                        {% if messages %}
-                            <ul class="messages">
-                                {% for message in messages %}
-                                    <span class="{{ message.tags }}">{{ message }}</span>
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card-header py-4">
-                            <form action="" method="get">
-                                <div class="input-group">
-                                    <div class="form-outline">
-                                        {% render_field filter.form.name class="form-control textinput" placeholder="Search" %}
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                </div>
-                            </form>
-
-                        </div>
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <br>
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -46,13 +31,12 @@
                     <th><input type="checkbox" onclick="toggle(this)"/></th>
                     <th>Id</th>
                     <th>Name</th>
-                    <th>Category</th>
                     <th colspan="2" style="text-align: center;">Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% if product %}
-                    {% for i in product %}
+                {% if category %}
+                    {% for i in category %}
                         <tr>
                             <td><input type="checkbox" name="foo" value="bar1"></td>
                             <td><img class="rounded-circle me-2" width="30" height="30" src="{{ i.image.url }}"
@@ -60,7 +44,7 @@
                                     style="text-decoration: none"
                                     href="#">{{ i.uid }}</a></td>
                             <td>{{ i.name }}</td>
-                            <td>{{ i.category.name }}</td>
+
                             <td><a class="btn btn-sm btn-info" href="#">Edit</a>
                             </td>
                             <td><a class="btn btn-sm btn-danger"
@@ -69,7 +53,7 @@
                         </tr>
                     {% endfor %}`
                 {% else %}
-                    <p>There is no product, Please Add First</p>
+                    <p>There is no category, Please Add First</p>
                 {% endif %}
                 </tbody>
             </table>

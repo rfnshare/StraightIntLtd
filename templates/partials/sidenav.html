@@ -24,9 +24,9 @@
                    class="dropdown-toggle nav-link"><i
                         class="fa fa-paper-plane-o"></i><span>SUITE</span></a>
                 <div class="dropdown-menu collapse list-unstyled" id="product">
-                    <a class="dropdown-item" href=#>Category</a>
-                    <a class="dropdown-item" href={% url 'product:index' %}>Add Product</a>
-                    <a class="dropdown-item" href="#">Manage Product</a>
+                    <a class="dropdown-item" href={% url 'product:create_category' %}>Category</a>
+                    <a class="dropdown-item" href={% url 'product:create' %}>Add Product</a>
+                    <a class="dropdown-item" href="{% url 'product:list' %}">Manage Product</a>
 
                 </div>
             </li>
@@ -44,8 +44,8 @@
                 <a href="#Supplier" aria-expanded="false" data-toggle="collapse"
                    class="dropdown-toggle nav-link"><i class="fas fa-male"></i><span>Supplier</span></a>
                 <div class="dropdown-menu collapse list-unstyled" id="Supplier">
-                    <a class="dropdown-item" href="#">Add Supplier</a>
-                    <a class="dropdown-item" href="#">Manage Supplier</a>
+                    <a class="dropdown-item" href="{% url 'supplier:create' %}">Add Supplier</a>
+                    <a class="dropdown-item" href="{% url 'supplier:list' %}">Manage Supplier</a>
                 </div>
             </li>
 
