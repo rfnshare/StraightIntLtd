@@ -6,7 +6,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import *
 from django_filters.views import FilterView
-from sell.models import Invoice
+
 from .filters import *
 from .forms import *
 
