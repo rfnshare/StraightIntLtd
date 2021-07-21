@@ -4,22 +4,20 @@
 {% load static %}
 {% block content %}
     <div class="container-fluid">
-        <h3 class="text-dark mb-4 text-center">Customer Creation Page</h3>
+        <h3 class="text-dark mb-4 text-center">Add Purchase</h3>
         <div class="row mb-3">
             <div class="row">
                 <div class="card shadow mb-3 mx-auto" style="width: 38rem;">
                     <div class="card-header py-3">
-                        <p class="text-primary m-0 fw-bold">Create Customer</p>
+                        <p class="text-primary m-0 fw-bold">Add New Purchase</p>
                     </div>
                     <div class="card-body">
                         <form method="post" enctype="multipart/form-data">
                             {% csrf_token %}
-                            {% for field in form %}
-                                {{ field|as_crispy_field }}
-                            {% endfor %}
+                            {{ form|crispy }}
                             <br>
-                            <button type="submit" class="btn btn-primary">Create</button>
-                            <a class="btn btn-success" href="{% url 'customer:customer_list' %}">List</a>
+                            <button type="submit" class="btn btn-primary">Next</button>
+                           
                         </form>
                     </div>
                 </div>

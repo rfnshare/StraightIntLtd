@@ -1,0 +1,47 @@
+{% extends 'dashboard/dashboard.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <h3 class="text-dark mb-4 text-center">Make Purchase</h3>
+        <div class="row mb-3">
+            <div class="row">
+                <div class="card shadow mb-3 mx-auto" style="width: 38rem;">
+                    <div class="card-header py-3">
+                        <p class="text-primary m-0 fw-bold">Make Purchase</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" value="{{ supplier.name }}" disabled>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" value="{{ supplier.phone }}" disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" value="{{ product.count }}" disabled>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" value="{{ product.all }}" disabled>
+                            </div>
+                        </div>
+
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ formset|crispy }}
+                            <br>
+                            <button type="submit" class="btn btn-primary">Create</button>
+                            <a class="btn btn-success" href="{% url 'purchase:list' %}">List</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

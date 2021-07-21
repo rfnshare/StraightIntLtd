@@ -2,12 +2,12 @@
 {% load widget_tweaks %}
 {% block content %}
     <div class="container-fluid">
-        <h3 class="text-dark mb-4 text-center">Customer List</h3>
+        <h3 class="text-dark mb-4 text-center">Purchase List</h3>
         <div class="card shadow">
             <div class="card-header py-4">
                 <div class="row align-items-center">
                     <div class="col-md-4 ">
-                        <h5 class="text-primary m-0 fw-bold">Customer Info</h5>
+                        <h5 class="text-primary m-0 fw-bold">Purchase Info</h5>
                     </div>
                     <div class="col-md-4">
                         {% if messages %}
@@ -39,50 +39,38 @@
         </div>
     </div>
     <div class="card-body">
-
         <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
             <table class="table my-0" id="dataTable">
                 <thead>
                 <tr>
-                    <th>
-                        <input type="checkbox" onclick="toggle(this)"/></th>
+                    <th><input type="checkbox" onclick="toggle(this)"/></th>
                     <th>Id</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Phone</th>
-                    <th>Pending Balance</th>
+                    <th>Purchase By</th>
                     <th colspan="2" style="text-align: center;">Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% if not page_obj %}
-                    <tr class="no-data">
-                        <td style="text-align: center" colspan="8">There is no customer, Please Add First</td>
-                    </tr>
-                {% else %}
-                    {% for i in page_obj %}
+                {% if purchase %}
+                    {% for i in purchase %}
                         <tr>
                             <td><input type="checkbox" name="foo" value="bar1"></td>
                             <td><img class="rounded-circle me-2" width="30" height="30" src="{{ i.image.url }}"
                                      alt="logo"/><a
                                     style="text-decoration: none"
-                                    href="{% url  'customer:customer_details' i.id %}">{{ i.uid }}</a></td>
-                            <td>{{ i.name }}</td>
-                            <td>{{ i.email }}</td>
-                            <td>{{ i.address }}</td>
-                            <td>{{ i.phone }}</td>
-                            <td>৳{{ i.balance }}</td>
-                            <td><a class="btn btn-sm btn-info" href="{% url 'customer:customer_edit' i.id %}">Edit</a>
+                                    href="#">{{ i.uid }}</a></td>
+                            <td>{{ i.supplier.name }}</td>
+
+                            <td><a class="btn btn-sm btn-info" href="#">Edit</a>
                             </td>
                             <td><a class="btn btn-sm btn-danger"
-                                   href="{% url 'customer:customer_delete' i.id %}">Delete</a>
+                                   href="#">Delete</a>
                             </td>
                         </tr>
                     {% endfor %}`
+                {% else %}
+                    <p>There is no product, Please Add First</p>
                 {% endif %}
                 </tbody>
-
             </table>
         </div>
         <div class="row">
@@ -128,6 +116,6 @@
 
                 </nav>
             </div>
-        </div>
-    </div>
+        </div> <!--pagination-->
+    </div> <!--List-->
 {% endblock %}

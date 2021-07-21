@@ -3,7 +3,7 @@
             class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0"
             href="{% url 'dashboard:index' %}">
         <div class="sidebar-brand-icon rotate-n-15"><i class="fab fa-rockrms"></i></div>
-        <div class="sidebar-brand-text mx-3"><span>Straight Ltd</span></div>
+        <div class="sidebar-brand-text mx-3"><span>StarEight Ltd</span></div>
     </a>
         <hr class="sidebar-divider my-0">
         <ul class="navbar-nav text-light" id="accordionSidebar">
@@ -53,7 +53,7 @@
                 <a href="#Purchase" aria-expanded="false" data-toggle="collapse"
                    class="dropdown-toggle nav-link "><i class="fas fa-shopping-cart"></i><span>Purchases</span></a>
                 <div class="dropdown-menu collapse list-unstyled" id="Purchase">
-                    <a class="dropdown-item" href="#">Add Purchase</a>
+                    <a class="dropdown-item" href="{% url 'purchase:supplier_select' %}">Add Purchase</a>
                     <a class="dropdown-item" href="#">Manage Purchase</a>
 
                 </div>

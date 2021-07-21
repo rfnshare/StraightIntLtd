@@ -1,35 +1,22 @@
 from django import forms
-
 from .models import *
+from crispy_forms.helper import FormHelper
 
 
 class CustomerCreateForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(CustomerCreateForm, self).__init__(*args, **kwargs)
+        self.fields['email'].required = False
+        self.fields['image'].required = False
+
     class Meta:
         model = Customer
         fields = "__all__"
         exclude = ('is_deleted',)
-        widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Abdullah Al Faroque'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'rfnshare@gmail.com'}),
-            'address': forms.TextInput(
-                attrs={'class': 'form-control', 'placeholder': '75/4 East Maniknagar, Dhaka 1203'}),
-            'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '01521259370'}),
-            'balance': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': '38500'}),
-            'uid': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'rf45q8c'}),
-
-        }
 
 
 class CustomerUpdateForm(forms.ModelForm):
     class Meta:
         model = Customer
-        exclude = ('balance', )
+        exclude = ('balance', 'is_deleted')
         fields = "__all__"
-
-
-class CustomerUpdateImageForm(forms.ModelForm):
-    # image = forms.ImageField(widget=forms.FileInput(attrs={'class': 'btn btn-primary btn-sm'}))
-
-    class Meta:
-        model = Customer
-        fields = ['image', ]

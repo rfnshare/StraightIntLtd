@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'purchase.apps.PurchaseConfig',
     'accounts.apps.AccountsConfig',
     'report.apps.ReportConfig',
+    'test_app.apps.TestAppConfig',
     'crispy_forms',
     'sweetify',
     'reportlab',

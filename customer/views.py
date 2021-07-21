@@ -53,11 +53,6 @@ class CustomerUpdateView(LoginRequiredMixin, UpdateView):
     success_message = "%(name)s was updated successfully."
     success_url = reverse_lazy("customer:customer_list")
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['image_form'] = CustomerUpdateImageForm
-        return context
-
     def form_valid(self, form):
         success_message = self.get_success_message(form.cleaned_data)
         if success_message:
@@ -67,10 +62,6 @@ class CustomerUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_success_message(self, cleaned_data):
         return self.success_message % cleaned_data
-
-    # def get_success_url(self, **kwargs):
-    #     # obj = form.instance or self.object
-    #     return reverse("customer:customer_details", kwargs={'pk': self.object.pk})
 
 
 class CustomerDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
@@ -83,17 +74,6 @@ class CustomerDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
         obj = self.get_object()
         messages.success(self.request, self.success_message % obj.__dict__, extra_tags='text-danger')
         return super(CustomerDeleteView, self).delete(request, *args, **kwargs)
-
-    def get(self, request, pk):
-        customer = get_object_or_404(Customer, pk=pk)
-        return render(request, self.template_name, {'object' : customer})
-
-    def post(self, request, pk):
-        customer = get_object_or_404(Customer, pk=pk)
-        customer.is_deleted = True
-        customer.save()
-        messages.success(request, self.success_message)
-        return redirect('customer:customer_list')
 
 
 class CustomerDetailsView(LoginRequiredMixin, DetailView):

@@ -45,8 +45,11 @@
                 <tr>
                     <th><input type="checkbox" onclick="toggle(this)"/></th>
                     <th>Id</th>
-                    <th>Name</th>
+                    <th>Product Name</th>
                     <th>Category</th>
+                    <th>Supplier Name</th>
+                    <th>Buying Price</th>
+                    <th>Selling Price</th>
                     <th colspan="2" style="text-align: center;">Action</th>
                 </tr>
                 </thead>
@@ -61,6 +64,10 @@
                                     href="#">{{ i.uid }}</a></td>
                             <td>{{ i.name }}</td>
                             <td>{{ i.category.name }}</td>
+                            <td>{{ i.supplier.name }}</td>
+                            <td>{{ i.buy_price }}</td>
+                            <td>{{ i.sell_price }}</td>
+
                             <td><a class="btn btn-sm btn-info" href="#">Edit</a>
                             </td>
                             <td><a class="btn btn-sm btn-danger"
