@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
+
 from .forms import *
 from .models import *
 from django.contrib import messages
@@ -22,6 +25,7 @@ def select_supplier(request):
 
 def purchase_create(request, pk):
     formset = PurchaseForm(request.GET or None)  # renders an empty formset
+    PurchaseForm.base_fields['products'] = forms.ModelChoiceField(queryset=Product.objects.filter(supplier_id=2))
     supplierobj = get_object_or_404(Supplier, pk=pk)  # gets the supplier object
     if request.method == 'POST':
         formset = PurchaseForm(request.POST)  # recieves a post method for the formset
@@ -55,6 +59,17 @@ def purchase_create(request, pk):
         'supplier': supplierobj,
     }  # sends the supplier and formset as context
     return render(request, 'purchase/purchase_create.html', context)
+# class PurchaseCreateView(CreateView):
+#     template_name = 'purchase/purchase_create.html'
+#     form_class = PurchaseForm
+#     success_url = reverse_lazy('purchase:list')
+#
+#     def get_context_data(self, **kwargs):
+#         context = super(PurchaseCreateView, self).get_context_data(**kwargs)
+#         supplierobj = get_object_or_404(Supplier, pk=self.kwargs['pk'])
+#         context['supplier'] = supplierobj
+#         PurchaseForm.base_fields['products'] = forms.ModelChoiceField(queryset=Product.objects.filter(supplier_id=2))
+#         return context
 
 
 def purchase_list(request):

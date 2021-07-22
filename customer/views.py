@@ -17,7 +17,6 @@ from .forms import *
 
 
 class CustomerCreateView(LoginRequiredMixin, CreateView):
-    model = Customer
     form_class = CustomerCreateForm
     paginate_by = 10
     template_name = 'customer/create_customer.html'
@@ -56,7 +55,7 @@ class CustomerUpdateView(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         success_message = self.get_success_message(form.cleaned_data)
         if success_message:
-            messages.success(self.request, success_message, extra_tags='text-info')
+            messages.warning(self.request, success_message, extra_tags='text-info')
         super().form_valid(form)
         return HttpResponseRedirect(self.get_success_url())
 
@@ -72,7 +71,7 @@ class CustomerDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
 
     def delete(self, request, *args, **kwargs):
         obj = self.get_object()
-        messages.success(self.request, self.success_message % obj.__dict__, extra_tags='text-danger')
+        messages.error(self.request, self.success_message % obj.__dict__, extra_tags='text-danger')
         return super(CustomerDeleteView, self).delete(request, *args, **kwargs)
 
 

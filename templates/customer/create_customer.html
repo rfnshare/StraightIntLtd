@@ -1,4 +1,5 @@
 {% extends 'dashboard/dashboard.html' %}
+{% block title %}Star Eight - Customer{% endblock %}
 {% load crispy_forms_filters %}
 {% load crispy_forms_tags %}
 {% load static %}
@@ -20,17 +21,15 @@
                                 {% endif %}
 
                             {% endfor %}
-                            <div class="row">
+                            <div class="row" id="container">
                                 <div class="form-group col-md-10">
                                     {{ form.address|as_crispy_field }}
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label class="panel-body-text" style="color: #000">.</label>
                                     <button class="form-control btn btn-danger remove-form-row">-</button>
+                                     <button class="form-control btn btn-success add-form-row" id="add" onclick="addField()">+</button>
                                 </div>
-                            </div>
-                            <div style="text-align: right;">
-                                <a href="#" class="add-form-row">+ Add More</a>
                             </div>
                             <br>
                             <button type="submit" class="btn btn-primary">Create</button>
@@ -41,4 +40,19 @@
             </div>
         </div>
     </div>
+    <script>
+        function addField() {
+            $(document).ready(function () {
+                $("#add").on("click", function () {
+                    $("#container").append(
+                        "<div class='col-sm-3'><g:field>Another field <button class='delete'>Delete</button></div>"
+                    );
+                });
+                $(document).on("click", ".delete", function () {
+                    $(this).parent().parent().remove();
+                });
+            });
+        }
+
+    </script>
 {% endblock %}

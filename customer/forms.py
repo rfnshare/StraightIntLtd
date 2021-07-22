@@ -4,6 +4,8 @@ from crispy_forms.helper import FormHelper
 
 
 class CustomerCreateForm(forms.ModelForm):
+    name = forms.CharField(widget=forms.TextInput(attrs={'novalidate ': 'novalidate '}))
+
     def __init__(self, *args, **kwargs):
         super(CustomerCreateForm, self).__init__(*args, **kwargs)
         self.fields['email'].required = False
