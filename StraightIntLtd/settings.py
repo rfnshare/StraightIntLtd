@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'sweetify',
     'reportlab',
     'widget_tweaks',
+    'phonenumber_field',
 
 ]
 
@@ -164,3 +165,7 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger'
 }
+
+PHONENUMBER_DB_FORMAT = "RFC3966"
+
+PHONENUMBER_DEFAULT_REGION = "BD"
