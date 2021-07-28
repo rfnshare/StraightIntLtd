@@ -1,12 +1,6 @@
-from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.messages.views import SuccessMessageMixin
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import *
-from django_filters.views import FilterView
-
+from customer.owner import *
 from .filters import *
 from .forms import *
 
@@ -16,66 +10,37 @@ from .forms import *
 #     redirect_field_name = 'redirect_to'
 
 
-class CustomerCreateView(LoginRequiredMixin, CreateView):
+class CustomerCreateView(OwnerCreateView):
     form_class = CustomerCreateForm
     paginate_by = 10
     template_name = 'customer/create_customer.html'
     success_message = "%(name)s was created successfully."
     success_url = reverse_lazy("customer:customer_list")
 
-    def form_valid(self, form):
-        success_message = self.get_success_message(form.cleaned_data)
-        if success_message:
-            messages.success(self.request, success_message, extra_tags='text-success')
-        super().form_valid(form)
-        return HttpResponseRedirect(self.get_success_url())
 
-    def get_success_message(self, cleaned_data):
-        return self.success_message % cleaned_data
-
-    # def get_success_url(self, **kwargs):
-    #     # obj = form.instance or self.object
-    #     return reverse("customer:customer_details", kwargs={'pk': self.object.pk})
-
-
-class CustomerListView(LoginRequiredMixin, FilterView):
+class CustomerListView(OwnerListView):
     filterset_class = CustomerFilter
     queryset = Customer.objects.filter(is_deleted=False)
     template_name = 'customer/customer_list.html'
     paginate_by = 10
 
 
-class CustomerUpdateView(LoginRequiredMixin, UpdateView):
+class CustomerUpdateView(OwnerUpdateView):
     model = Customer
     template_name = 'customer/customer_edit.html'
     form_class = CustomerUpdateForm
     success_message = "%(name)s was updated successfully."
     success_url = reverse_lazy("customer:customer_list")
 
-    def form_valid(self, form):
-        success_message = self.get_success_message(form.cleaned_data)
-        if success_message:
-            messages.warning(self.request, success_message, extra_tags='text-info')
-        super().form_valid(form)
-        return HttpResponseRedirect(self.get_success_url())
 
-    def get_success_message(self, cleaned_data):
-        return self.success_message % cleaned_data
-
-
-class CustomerDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
+class CustomerDeleteView(OwnerDeleteView):
     model = Customer
     template_name = 'customer/customer_delete.html'
     success_url = reverse_lazy('customer:customer_list')
     success_message = "Session %(name)s was removed successfully"
 
-    def delete(self, request, *args, **kwargs):
-        obj = self.get_object()
-        messages.error(self.request, self.success_message % obj.__dict__, extra_tags='text-danger')
-        return super(CustomerDeleteView, self).delete(request, *args, **kwargs)
 
-
-class CustomerDetailsView(LoginRequiredMixin, DetailView):
+class CustomerDetailsView(OwnerDetailView):
     model = Customer
     template_name = 'customer/customer_details.html'
 
@@ -85,41 +50,4 @@ def CustomerLedgerView(request, pk):
     ctx = {'customer': customer}
     return render(request, 'customer/customer_ledger.html', ctx)
 
-# def create_customer(request):
-#     form = CustomerForm()
-#     if request.method == 'POST':
-#         form = CustomerForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, 'Customer Creation successful')
-#             return redirect('customer:customer_list')
-#     ctx = {'form': form}
-#     return render(request, 'customer/create_customer.html', ctx)
-#
-#
-# def cuEdit(request, pk):
-#     customer = Customer.objects.get(id=pk)
-#     form = CustomerForm(instance=customer)
-#     if request.method == 'POST':
-#         form = CustomerForm(request.POST, instance=customer)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('customer:customer_list')
-#     ctx = {'form': form}
-#     return render(request, 'customer/customer_edit.html', ctx)
-#
-#
-# def cuDelete(request, pk):
-#     customer = Customer.objects.get(id=pk)
-#     form = CustomerForm()
-#     if request.method == 'POST':
-#         customer.delete()
-#         return redirect('customer:customer_list')
-#     ctx = {'form': form}
-#     return render(request, 'customer/customer_delete.html', ctx)
-#
-#
-# def customerDetails(request, pk):
-#     customer = Customer.objects.get(id=pk)
-#     form = CustomerForm(instance=customer)
-#     return render(request, "customer/customer_details.html", {'form': form})
+

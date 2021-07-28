@@ -36,6 +36,7 @@
                 <div class="dropdown-menu collapse list-unstyled" id="customer">
                     <a class="dropdown-item" href={% url 'customer:create_customer' %}>Add Customer</a>
                     <a class="dropdown-item" href="{% url 'customer:customer_list' %}">Manage Customer</a>
+                    <a class="dropdown-item" href="{% url 'customer:customer_list' %}">Customer Ledger</a>
 
                 </div>
             </li>
@@ -46,6 +47,7 @@
                 <div class="dropdown-menu collapse list-unstyled" id="Supplier">
                     <a class="dropdown-item" href="{% url 'supplier:create' %}">Add Supplier</a>
                     <a class="dropdown-item" href="{% url 'supplier:list' %}">Manage Supplier</a>
+                    <a class="dropdown-item" href="{% url 'customer:customer_list' %}">Supplier Ledger</a>
                 </div>
             </li>
 

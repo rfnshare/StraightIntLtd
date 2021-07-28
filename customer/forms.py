@@ -1,6 +1,6 @@
 from django import forms
+
 from .models import *
-from crispy_forms.helper import FormHelper
 
 
 class CustomerCreateForm(forms.ModelForm):
@@ -14,11 +14,11 @@ class CustomerCreateForm(forms.ModelForm):
     class Meta:
         model = Customer
         fields = "__all__"
-        exclude = ('is_deleted',)
+        exclude = ('is_deleted', 'owner')
 
 
 class CustomerUpdateForm(forms.ModelForm):
     class Meta:
         model = Customer
-        exclude = ('balance', 'is_deleted')
+        exclude = ('balance', 'is_deleted', 'owner')
         fields = "__all__"

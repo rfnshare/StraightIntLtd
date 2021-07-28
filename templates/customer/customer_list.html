@@ -8,17 +8,17 @@
             <div class="card-header py-4">
                 <div class="row align-items-center">
                     <div class="col-md-4 ">
-{#                        <h5 class="text-primary m-0 fw-bold">Customer Info</h5>#}
+                        {#                        <h5 class="text-primary m-0 fw-bold">Customer Info</h5>#}
                     </div>
-{#                    <div class="col-md-4">#}
-{#                        {% if messages %}#}
-{#                            <ul class="messages">#}
-{#                                {% for message in messages %}#}
-{#                                    <span class="{{ message.tags }}">{{ message }}</span>#}
-{#                                {% endfor %}#}
-{#                            </ul>#}
-{#                        {% endif %}#}
-{#                    </div>#}
+                    {#                    <div class="col-md-4">#}
+                    {#                        {% if messages %}#}
+                    {#                            <ul class="messages">#}
+                    {#                                {% for message in messages %}#}
+                    {#                                    <span class="{{ message.tags }}">{{ message }}</span>#}
+                    {#                                {% endfor %}#}
+                    {#                            </ul>#}
+                    {#                        {% endif %}#}
+                    {#                    </div>#}
                     <div class="col-md-4">
                         <div class="card-header py-4">
                             <form action="" method="get">
@@ -74,11 +74,22 @@
                             <td>{{ i.address }}</td>
                             <td>{{ i.phone }}</td>
                             <td>৳{{ i.balance }}</td>
-                            <td><a class="btn btn-sm btn-info" href="{% url 'customer:customer_edit' i.id %}">Edit</a>
-                            </td>
-                            <td><a class="btn btn-sm btn-danger"
-                                   href="{% url 'customer:customer_delete' i.id %}">Delete</a>
-                            </td>
+                            {% if i.owner == user %}
+                                <td><a class="btn btn-sm btn-info"
+                                       href="{% url 'customer:customer_edit' i.id %}">Edit</a>
+                                </td>
+                                <td><a class="btn btn-sm btn-danger"
+                                       href="{% url 'customer:customer_delete' i.id %}">Delete</a>
+                                </td>
+                                {% else %}
+                                <td><a class="btn btn-sm btn-info disabled"
+                                       href="{% url 'customer:customer_edit' i.id %}">Edit</a>
+                                </td>
+                                <td><a class="btn btn-sm btn-danger disabled"
+                                       href="{% url 'customer:customer_delete' i.id %}">Delete</a>
+                                </td>
+                            {% endif %}
+
                         </tr>
                     {% endfor %}`
                 {% endif %}
