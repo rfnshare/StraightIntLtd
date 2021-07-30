@@ -1,6 +1,8 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from django.core import validators
+from phonenumber_field.widgets import PhoneNumberPrefixWidget
+
 from .models import *
 from django.core.validators import RegexValidator
 from phonenumber_field.phonenumber import PhoneNumber
@@ -9,6 +11,9 @@ from phonenumber_field.phonenumber import PhoneNumber
 class CustomerCreateForm(forms.ModelForm):
     name = forms.CharField(validators=[validators.MinLengthValidator(2, "Please enter 2 or more characters")])
     uid = forms.CharField(validators=[validators.MinLengthValidator(2, "Please enter 2 or more characters")])
+    # phone = PhoneNumberField(
+    #     widget=PhoneNumberPrefixWidget(initial='BD')
+    # )
 
     def __init__(self, *args, **kwargs):
         super(CustomerCreateForm, self).__init__(*args, **kwargs)

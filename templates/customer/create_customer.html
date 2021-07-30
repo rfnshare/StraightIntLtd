@@ -4,6 +4,7 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
+    {% include 'dependency/javascripts.html' %}
     <div class="container-fluid">
         <h3 class="text-dark mb-4 text-center">Customer Creation Page</h3>
         <div class="row mb-3">
@@ -21,15 +22,12 @@
                                 {% endif %}
 
                             {% endfor %}
-                            <div class="row" id="container">
-                                <div class="form-group col-md-10">
-                                    {{ form.address|as_crispy_field }}
-                                </div>
-                                <div class="form-group col-md-2">
-                                    <label class="panel-body-text" style="color: #000">.</label>
-                                    <button class="form-control btn btn-danger remove-form-row">-</button>
-                                     <button class="form-control btn btn-success add-form-row" id="add" onclick="addField()">+</button>
-                                </div>
+                            <div class="mb-3">
+                                {{ form.address|as_crispy_field }}
+                                <a class="add_button" href="javascript:void(0);" title="Add field"><i
+                                        class="fas fa-plus-circle"></i></a>
+                            </div>
+                            <div class="mb-3 field_wrapper">
                             </div>
                             <br>
                             <button type="submit" class="btn btn-primary">Create</button>
@@ -41,18 +39,29 @@
         </div>
     </div>
     <script>
-        function addField() {
-            $(document).ready(function () {
-                $("#add").on("click", function () {
-                    $("#container").append(
-                        "<div class='col-sm-3'><g:field>Another field <button class='delete'>Delete</button></div>"
-                    );
-                });
-                $(document).on("click", ".delete", function () {
-                    $(this).parent().parent().remove();
-                });
-            });
-        }
+        $(document).ready(function () {
+            var maxField = 10; //Input fields increment limitation
+            var addButton = $('.add_button'); //Add button selector
+            var wrapper = $('.field_wrapper'); //Input field wrapper
+            var fieldHTML = '<div><input class="form-control" type="text" name="field_name[]" value=""/><a href="javascript:void(0);" class="remove_button"><i class="fas fa-minus-circle"></i> </a></div>'; //New input field html
+            var x = 1; //Initial field counter is 1
 
+            //Once add button is clicked
+            $(addButton).click(function () {
+                //Check maximum number of input fields
+                if (x < maxField) {
+                    x++; //Increment field counter
+                    $(wrapper).append(fieldHTML); //Add field html
+                }
+            });
+
+            //Once remove button is clicked
+            $(wrapper).on('click', '.remove_button', function (e) {
+                e.preventDefault();
+                $(this).parent('div').remove(); //Remove field html
+                x--; //Decrement field counter
+            });
+        });
     </script>
+
 {% endblock %}
