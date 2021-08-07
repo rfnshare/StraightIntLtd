@@ -81,7 +81,7 @@
                                 <td><a class="btn btn-sm btn-danger"
                                        href="{% url 'customer:customer_delete' i.id %}">Delete</a>
                                 </td>
-                                {% else %}
+                            {% else %}
                                 <td><a class="btn btn-sm btn-info disabled"
                                        href="{% url 'customer:customer_edit' i.id %}">Edit</a>
                                 </td>
@@ -137,7 +137,6 @@
                             </li>
                         {% endif %}
                     </ul>
-
                 </nav>
             </div>
         </div>

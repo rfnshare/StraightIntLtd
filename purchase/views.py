@@ -25,7 +25,7 @@ def select_supplier(request):
 
 def purchase_create(request, pk):
     formset = PurchaseForm(request.GET or None)  # renders an empty formset
-    PurchaseForm.base_fields['products'] = forms.ModelChoiceField(queryset=Product.objects.filter(supplier_id=2))
+    PurchaseForm.base_fields['products'] = forms.ModelChoiceField(queryset=Product.objects.filter(supplier_id=pk))
     supplierobj = get_object_or_404(Supplier, pk=pk)  # gets the supplier object
     if request.method == 'POST':
         formset = PurchaseForm(request.POST)  # recieves a post method for the formset

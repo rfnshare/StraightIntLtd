@@ -4,64 +4,52 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
-    {% include 'dependency/javascripts.html' %}
-    <div class="container-fluid">
-        <h3 class="text-dark mb-4 text-center">Customer Creation Page</h3>
-        <div class="row mb-3">
-            <div class="row">
-                <div class="card shadow mb-3 mx-auto" style="width: 38rem;">
-                    <div class="card-header py-3">
-                        <p class="text-primary m-0 fw-bold">Create Customer</p>
-                    </div>
-                    <div class="card-body">
-                        <form method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            {% for field in form %}
-                                {% if field != form.address %}
-                                    {{ field|as_crispy_field }}
-                                {% endif %}
+    <div class="form-body">
+        <div class="form-container">
+            <div class="title">Customer Registration</div>
+            <div class="content">
+                <form action="#" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="user-details">
+                        <div class="input-box">
 
-                            {% endfor %}
-                            <div class="mb-3">
-                                {{ form.address|as_crispy_field }}
-                                <a class="add_button" href="javascript:void(0);" title="Add field"><i
-                                        class="fas fa-plus-circle"></i></a>
-                            </div>
-                            <div class="mb-3 field_wrapper">
-                            </div>
-                            <br>
-                            <button type="submit" class="btn btn-primary">Create</button>
-                            <a class="btn btn-success" href="{% url 'customer:customer_list' %}">List</a>
-                        </form>
+                            {{ form.name|as_crispy_field }}
+                        </div>
+                        <div class="input-box">
+
+                            {{ form.uid|as_crispy_field }}
+                        </div>
+                        <div class="input-box">
+
+                            {{ form.email|as_crispy_field }}
+                        </div>
+                        <div class="input-box">
+
+                            {{ form.phone|as_crispy_field }}
+                        </div>
+                        <div class="input-box">
+
+                            {{ form.balance|as_crispy_field }}
+                        </div>
+                        <div class="input-box">
+
+                            {{ form.address|as_crispy_field }}
+                        </div>
                     </div>
-                </div>
+                    <div class="gender-details">
+                        <div class="category">
+                            {{ form.image|as_crispy_field }}
+                        </div>
+                    </div>
+
+                    <div class="button">
+                        <input type="submit" value="Register">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    <script>
-        $(document).ready(function () {
-            var maxField = 10; //Input fields increment limitation
-            var addButton = $('.add_button'); //Add button selector
-            var wrapper = $('.field_wrapper'); //Input field wrapper
-            var fieldHTML = '<div><input class="form-control" type="text" name="field_name[]" value=""/><a href="javascript:void(0);" class="remove_button"><i class="fas fa-minus-circle"></i> </a></div>'; //New input field html
-            var x = 1; //Initial field counter is 1
 
-            //Once add button is clicked
-            $(addButton).click(function () {
-                //Check maximum number of input fields
-                if (x < maxField) {
-                    x++; //Increment field counter
-                    $(wrapper).append(fieldHTML); //Add field html
-                }
-            });
 
-            //Once remove button is clicked
-            $(wrapper).on('click', '.remove_button', function (e) {
-                e.preventDefault();
-                $(this).parent('div').remove(); //Remove field html
-                x--; //Decrement field counter
-            });
-        });
-    </script>
 
 {% endblock %}

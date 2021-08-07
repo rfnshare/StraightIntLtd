@@ -9,8 +9,10 @@ from phonenumber_field.phonenumber import PhoneNumber
 
 
 class CustomerCreateForm(forms.ModelForm):
-    name = forms.CharField(validators=[validators.MinLengthValidator(2, "Please enter 2 or more characters")])
-    uid = forms.CharField(validators=[validators.MinLengthValidator(2, "Please enter 2 or more characters")])
+    name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Enter customer fullname'}),
+                           validators=[validators.MinLengthValidator(2, "Please enter 2 or more characters")])
+    uid = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Enter UID'}), validators=[validators.MinLengthValidator(2, "Please enter 2 or more characters")])
+
     # phone = PhoneNumberField(
     #     widget=PhoneNumberPrefixWidget(initial='BD')
     # )

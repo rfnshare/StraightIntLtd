@@ -9,4 +9,4 @@ from .models import *
 
 def regcar(request):
     car_form = MyCustomForm
-    return render(request, 'core/regcar.html', {'car_form': car_form})
+    return render(request, 'dependency/regcar.html', {'car_form': car_form})
