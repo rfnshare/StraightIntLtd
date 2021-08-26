@@ -11,10 +11,6 @@ __pycache__/
 */*/__pycache__/
 */__pycache__/
 local_settings.py
-customer/migrations
-dashboard/migrations
-product/migrations
-sell/migrations
 
 # Backup files #
 *.bak
