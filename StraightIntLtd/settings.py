@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-g9@&_x#sp!g@rf4b4ays)!9arwd1h*%88&!z%c-99c2+*nof_w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'reportlab',
     'widget_tweaks',
     'phonenumber_field',
+    'crispy_bootstrap4'
 
 ]
 

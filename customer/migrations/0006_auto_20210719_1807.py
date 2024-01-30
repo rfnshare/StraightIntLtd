@@ -3,7 +3,7 @@
 import datetime
 
 from django.db import migrations, models
-from django.utils.timezone import utc
+from django.utils import timezone
 
 
 class Migration(migrations.Migration):
@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='customer',
             name='created_at',
-            field=models.DateTimeField(auto_now_add=True, default=datetime.datetime(2021, 7, 19, 12, 7, 49, 929198, tzinfo=utc)),
+            field=models.DateTimeField(auto_now_add=True, default=datetime.datetime(2021, 7, 19, 12, 7, 49, 929198,)),
             preserve_default=False,
         ),
         migrations.AddField(
